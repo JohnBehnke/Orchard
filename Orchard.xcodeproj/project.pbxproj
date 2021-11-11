@@ -17,6 +17,12 @@
 		52F32601273C8F7A00AD07D1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F325EB273C8F7900AD07D1 /* Persistence.swift */; };
 		52F32602273C8F7A00AD07D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F325EC273C8F7A00AD07D1 /* Assets.xcassets */; };
 		52F32603273C8F7A00AD07D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F325EC273C8F7A00AD07D1 /* Assets.xcassets */; };
+		52F3260E273CA56500AD07D1 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F3260D273CA56500AD07D1 /* AddProductView.swift */; };
+		52F3260F273CA56500AD07D1 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F3260D273CA56500AD07D1 /* AddProductView.swift */; };
+		52F32611273CC19C00AD07D1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F32610273CC19C00AD07D1 /* SettingsView.swift */; };
+		52F32612273CC19C00AD07D1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F32610273CC19C00AD07D1 /* SettingsView.swift */; };
+		52F32614273CC50F00AD07D1 /* TwilioPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F32613273CC50F00AD07D1 /* TwilioPreferencesView.swift */; };
+		52F32615273CC50F00AD07D1 /* TwilioPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F32613273CC50F00AD07D1 /* TwilioPreferencesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,9 @@
 		52F325F1273C8F7A00AD07D1 /* Orchard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orchard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F325F7273C8F7A00AD07D1 /* Orchard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orchard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F325F9273C8F7A00AD07D1 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		52F3260D273CA56500AD07D1 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
+		52F32610273CC19C00AD07D1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		52F32613273CC50F00AD07D1 /* TwilioPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioPreferencesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +69,7 @@
 		52F325E6273C8F7900AD07D1 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				52F3260C273CA55200AD07D1 /* Views */,
 				52F325E9273C8F7900AD07D1 /* OrchardApp.swift */,
 				52F325EA273C8F7900AD07D1 /* ContentView.swift */,
 				52F325EB273C8F7900AD07D1 /* Persistence.swift */,
@@ -84,6 +94,16 @@
 				52F325F9273C8F7A00AD07D1 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		52F3260C273CA55200AD07D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				52F3260D273CA56500AD07D1 /* AddProductView.swift */,
+				52F32610273CC19C00AD07D1 /* SettingsView.swift */,
+				52F32613273CC50F00AD07D1 /* TwilioPreferencesView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,7 +207,10 @@
 				52F325FA273C8F7A00AD07D1 /* Orchard.xcdatamodeld in Sources */,
 				52F32600273C8F7A00AD07D1 /* Persistence.swift in Sources */,
 				52F325FC273C8F7A00AD07D1 /* OrchardApp.swift in Sources */,
+				52F32611273CC19C00AD07D1 /* SettingsView.swift in Sources */,
+				52F32614273CC50F00AD07D1 /* TwilioPreferencesView.swift in Sources */,
 				52F325FE273C8F7A00AD07D1 /* ContentView.swift in Sources */,
+				52F3260E273CA56500AD07D1 /* AddProductView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +221,10 @@
 				52F325FB273C8F7A00AD07D1 /* Orchard.xcdatamodeld in Sources */,
 				52F32601273C8F7A00AD07D1 /* Persistence.swift in Sources */,
 				52F325FD273C8F7A00AD07D1 /* OrchardApp.swift in Sources */,
+				52F32612273CC19C00AD07D1 /* SettingsView.swift in Sources */,
+				52F32615273CC50F00AD07D1 /* TwilioPreferencesView.swift in Sources */,
 				52F325FF273C8F7A00AD07D1 /* ContentView.swift in Sources */,
+				52F3260F273CA56500AD07D1 /* AddProductView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

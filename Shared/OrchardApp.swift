@@ -15,6 +15,11 @@ struct OrchardApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                
+            
+        }
+        Settings {
+            SettingsView()
         }
     }
 }
