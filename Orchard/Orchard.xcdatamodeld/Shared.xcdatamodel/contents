@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Producto" representedClassName="Producto" syncable="YES" codeGenerationType="class">
+        <attribute name="modelNumber" attributeType="String" defaultValueString=""/>
+        <attribute name="productName" attributeType="String" defaultValueString=""/>
+        <attribute name="purchaseUrl" attributeType="String" defaultValueString=""/>
+        <attribute name="shouldSendNotification" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="timeAdded" attributeType="Date" defaultDateTimeInterval="668668620" usesScalarValueType="NO"/>
+        <attribute name="timeLastChecked" attributeType="Date" defaultDateTimeInterval="668668620" usesScalarValueType="NO"/>
+        <attribute name="zipCode" attributeType="String" defaultValueString=""/>
+    </entity>
+    <elements>
+        <element name="Producto" positionX="-63" positionY="-18" width="128" height="134"/>
+    </elements>
+</model>

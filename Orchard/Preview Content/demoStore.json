@@ -1,0 +1,222 @@
+
+{
+  "storeEmail": "danburyfairmall@apple.com",
+  "storeName": "Danbury Fair Mall",
+  "reservationUrl": "http://www.apple.com/retail/danburyfairmall",
+  "makeReservationUrl": "http://www.apple.com/retail/danburyfairmall",
+  "state": "CT",
+  "storeImageUrl": "https://rtlimages.apple.com/cmc/dieter/store/4_3/R093.png?resize=828:*&output-format=jpg",
+  "country": "US",
+  "city": "Danbury",
+  "storeNumber": "R093",
+  "partsAvailability": {
+    "MK1H3LL/A": {
+      "storePickEligible": true,
+      "storeSearchEnabled": true,
+      "storeSelectionEnabled": true,
+      "storePickupQuote": "Tue, Apr 26 at Apple Danbury Fair Mall",
+      "storePickupQuote2_0": "<span class=\"as-pickup-quote-availability-quote\">Tue, Apr 26</span> at <button type=\"button\" class=\"rf-pickup-quote-overlay-trigger as-retailavailabilitytrigger-infobutton retail-availability-search-trigger as-buttonlink\" data-ase-overlay=\"buac-overlay\" data-ase-click=\"show\">Apple Danbury Fair Mall</button>",
+      "pickupSearchQuote": "Available Tue, Apr 26",
+      "storePickupLabel": "Order now. Pick up in store or curbside:",
+      "partNumber": "MK1H3LL/A",
+      "purchaseOption": "",
+      "ctoOptions": "",
+      "storePickupLinkText": "Check another store",
+      "storePickupProductTitle": "16-inch MacBook Pro - Silver",
+      "pickupDisplay": "ships-to-store",
+      "pickupType": "In-Store or Curbside Pickup"
+    }
+  },
+  "phoneNumber": "203-546 6340",
+  "pickupTypeAvailabilityText": "In-Store and Curbside Pickup available at this location.",
+  "address": {
+    "address": "Apple Danbury Fair Mall",
+    "address3": null,
+    "address2": "Seven Backus Avenue",
+    "postalCode": "06810"
+  },
+  "hoursUrl": "http://www.apple.com/retail/danburyfairmall",
+  "directionsUrl": "http://www.apple.com/retail/danburyfairmall",
+  "storeHours": {
+    "storeHoursText": "Store Hours",
+    "bopisPickupDays": "Days",
+    "bopisPickupHours": "Hours",
+    "hours": [
+      {
+        "storeTimings": "10:00 AM-8:00 PM",
+        "storeDays": "Mon-Sat:"
+      },
+      {
+        "storeTimings": "11:00 AM-6:00 PM",
+        "storeDays": "Sun:"
+      }
+    ]
+  },
+  "pickupEncodedUpperDateString": "20220426",
+  "storelatitude": 41.3806,
+  "storelongitude": -73.48015,
+  "storedistance": 0.17,
+  "storeDistanceVoText": "0.17 mi from 06810",
+  "retailStore": {
+    "storeNumber": "R093",
+    "storeUniqueId": "R093",
+    "name": "Danbury Fair Mall",
+    "storeTypeKey": "1",
+    "storeSubTypeKey": "0",
+    "storeType": "APPLESTORE_DEFAULT",
+    "phoneNumber": "203-546 6340",
+    "email": "danburyfairmall@apple.com",
+    "carrierCode": null,
+    "locationType": null,
+    "latitude": 41.3806,
+    "longitude": -73.48015,
+    "address": {
+      "city": "Danbury",
+      "companyName": "Apple Danbury Fair Mall",
+      "countryCode": "US",
+      "county": null,
+      "district": null,
+      "geoCode": null,
+      "label": null,
+      "languageCode": "US-EN",
+      "mailStop": null,
+      "postalCode": "06810",
+      "province": null,
+      "state": "CT",
+      "street": "Seven Backus Avenue",
+      "street2": null,
+      "street3": null,
+      "suburb": null,
+      "type": "SHIPPING",
+      "addrSourceType": null,
+      "outsideCityFlag": null,
+      "daytimePhoneAreaCode": null,
+      "eveningPhoneAreaCode": null,
+      "daytimePhone": "203-546 6340",
+      "fullPhoneNumber": null,
+      "eveningPhone": null,
+      "emailAddress": null,
+      "firstName": null,
+      "lastName": null,
+      "suffix": null,
+      "lastNamePhonetic": null,
+      "firstNamePhonetic": null,
+      "title": null,
+      "businessAddress": false,
+      "uuid": "ebe0bba9-f024-4f15-99ff-9a9f57519efe",
+      "mobilePhone": null,
+      "mobilePhoneAreaCode": null,
+      "cityStateZip": null,
+      "daytimePhoneSelected": false,
+      "middleName": null,
+      "residenceStatus": null,
+      "moveInDate": null,
+      "subscriberId": null,
+      "locationType": null,
+      "carrierCode": null,
+      "metadata": {},
+      "verificationState": "UN_VERIFIED",
+      "expiration": null,
+      "markForDeletion": false,
+      "primaryAddress": false,
+      "fullEveningPhone": null,
+      "fullDaytimePhone": "203-546 6340",
+      "correctionResult": null,
+      "twoLineAddress": "Seven Backus Avenue,\nDanbury, CT, 06810",
+      "addressVerified": false
+    },
+    "urlKey": null,
+    "directionsUrl": "http://www.apple.com/retail/danburyfairmall",
+    "storeImageUrl": "http://rtlimages.apple.com/cmc/dieter/store/4_3/R093.png?resize=828:*&output-format=jpg",
+    "makeReservationUrl": null,
+    "hoursAndInfoUrl": "http://www.apple.com/retail/danburyfairmall",
+    "storeHours": [
+      {
+        "storeDays": "Mon-Sat",
+        "voStoreDays": "Monday-Saturday",
+        "storeTimings": "10:00 AM-8:00 PM"
+      },
+      {
+        "storeDays": "Sun",
+        "voStoreDays": "Sunday",
+        "storeTimings": "11:00 AM-6:00 PM"
+      }
+    ],
+    "storeHolidays": [],
+    "secureStoreImageUrl": "https://rtlimages.apple.com/cmc/dieter/store/4_3/R093.png?resize=828:*&output-format=jpg",
+    "distance": 0.17,
+    "distanceUnit": "mi",
+    "distanceWithUnit": "0.17 mi",
+    "timezone": "America/New_York",
+    "storeIsActive": true,
+    "lastUpdated": 0.0,
+    "lastFetched": 1646960274619,
+    "dateStamp": "10-Mar-2022",
+    "distanceSeparator": ".",
+    "nextAvailableDate": null,
+    "storeHolidayLookAheadWindow": 7,
+    "driveDistanceWithUnit": null,
+    "driveDistanceInMeters": null,
+    "dynamicAttributes": {},
+    "storePickupMethodByType": {
+      "INSTORE": {
+        "type": "INSTORE",
+        "services": [
+          "APU"
+        ],
+        "typeCoordinate": {
+          "lat": 41.3806,
+          "lon": -73.48015
+        },
+        "typeDirection": {
+          "directionByLocale": null
+        },
+        "typeMeetupLocation": {
+          "meetingLocationByLocale": null
+        }
+      },
+      "CURBSIDE": {
+        "type": "CURBSIDE",
+        "services": [
+          "APU"
+        ],
+        "typeCoordinate": {
+          "lat": 41.379944,
+          "lon": -73.479235
+        },
+        "typeDirection": {
+          "directionByLocale": {
+            "en_US": "When you arrive at Danbury Fair Mall, proceed to the mall entrance between L.L. Bean and Chipotle. Follow the green Curbside Pickup signs toward the dedicated parking spaces, located between the J-3 and J-4 parking locations."
+          }
+        },
+        "typeMeetupLocation": {
+          "meetingLocationByLocale": {
+            "en_US": "When you arrive at Danbury Fair Mall, proceed to the mall entrance between L.L. Bean and Chipotle. Follow the green Curbside Pickup signs toward the dedicated parking spaces, located between the J-3 and J-4 parking locations."
+          }
+        }
+      }
+    },
+    "storeTimings": null,
+    "availableNow": true
+  },
+  "storelistnumber": 1,
+  "storeListNumber": 1,
+  "pickupOptionsDetails": {
+    "whatToExpectAtPickup": "<h4 class=\"as-pickupmethods-intro-header\">What to expect at pickup </h4><br /> We’ll email detailed pickup instructions when your order is ready. For new device setup, schedule a free online session with an Apple Specialist.",
+    "comparePickupOptionsLink": "<a href=\"https://www.apple.com/shop/shipping-pickup\" data-feature-name=\"Astro Link\" data-display-name=\"AOS: shop/shipping-pickup\" target=\"_blank\">Learn more about delivery <br />and pickup<span class=\"icon icon-after icon-chevronright\"></span><span class=\"visuallyhidden\">(Opens in a new window)</span></a>",
+    "pickupOptions": [
+      {
+        "pickupOptionTitle": "In-Store",
+        "pickupOptionDescription": "Pick up your online order. You may be able to get setup help and shop for accessories. Temperature checks and face masks may be required.",
+        "index": 1
+      },
+      {
+        "pickupOptionTitle": "Curbside",
+        "pickupOptionDescription": "We’ll bring your online order to your vehicle.",
+        "index": 2
+      }
+    ]
+  },
+  "rank": 1
+}
+
