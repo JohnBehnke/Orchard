@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EditProductView: View {
   @Environment(\.presentationMode) var presentationMode
-  @EnvironmentObject var products:ProductModel
+  @EnvironmentObject var products:ProductStore
   @Binding var product: Product
   
   var body: some View {

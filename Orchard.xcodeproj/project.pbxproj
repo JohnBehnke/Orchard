@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5236446227D98FF100707FD3 /* AppleStoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5236446027D98FF100707FD3 /* AppleStoreAPI.swift */; };
-		5236446727D9910900707FD3 /* AppleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5236446527D9910900707FD3 /* AppleStore.swift */; };
+		5203927627E3F8780070D245 /* StoreDetailAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5203927527E3F8780070D245 /* StoreDetailAPIResponse.swift */; };
+		5236446227D98FF100707FD3 /* FulfillmentMessagesAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5236446027D98FF100707FD3 /* FulfillmentMessagesAPIResponse.swift */; };
 		524F73A627DAD4C00091BFF4 /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = 524F73A527DAD4C00091BFF4 /* Preview Content */; };
+		5267A4BC27E6435C0020E8A3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267A4BB27E6435C0020E8A3 /* Store.swift */; };
 		5298691627DB09EE00C83613 /* EditProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298691527DB09EE00C83613 /* EditProductView.swift */; };
 		529869A727DC43D100C83613 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869A627DC43D100C83613 /* Product.swift */; };
 		529869A927DC445B00C83613 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869A827DC445B00C83613 /* SideBarView.swift */; };
 		529869AB27DC44A400C83613 /* StoreDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869AA27DC44A400C83613 /* StoreDetailView.swift */; };
 		529869AD27DC450300C83613 /* StoreListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869AC27DC450300C83613 /* StoreListView.swift */; };
-		529869AF27DC45D900C83613 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869AE27DC45D900C83613 /* ProductModel.swift */; };
-		529869B127DC466B00C83613 /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869B027DC466B00C83613 /* StoreModel.swift */; };
-		52DE2ABC27DDAC4800747B14 /* ProductStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE2ABB27DDAC4800747B14 /* ProductStore.swift */; };
+		529869AF27DC45D900C83613 /* ProductStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869AE27DC45D900C83613 /* ProductStore.swift */; };
+		529869B127DC466B00C83613 /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869B027DC466B00C83613 /* StoreAPI.swift */; };
 		52DE2ABF27DED49600747B14 /* DebugSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE2ABE27DED49600747B14 /* DebugSettingsView.swift */; };
 		52DE2AC127DED4D600747B14 /* GeneralPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE2AC027DED4D600747B14 /* GeneralPreferencesView.swift */; };
 		52DE2AC327DED93700747B14 /* UpdatesPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE2AC227DED93700747B14 /* UpdatesPreferencesView.swift */; };
@@ -30,17 +30,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5236446027D98FF100707FD3 /* AppleStoreAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleStoreAPI.swift; sourceTree = "<group>"; };
-		5236446527D9910900707FD3 /* AppleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleStore.swift; sourceTree = "<group>"; };
+		5203927527E3F8780070D245 /* StoreDetailAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailAPIResponse.swift; sourceTree = "<group>"; };
+		5236446027D98FF100707FD3 /* FulfillmentMessagesAPIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FulfillmentMessagesAPIResponse.swift; sourceTree = "<group>"; };
 		524F73A527DAD4C00091BFF4 /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preview Content"; sourceTree = "<group>"; };
+		5267A4BB27E6435C0020E8A3 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		5298691527DB09EE00C83613 /* EditProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductView.swift; sourceTree = "<group>"; };
 		529869A627DC43D100C83613 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		529869A827DC445B00C83613 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
 		529869AA27DC44A400C83613 /* StoreDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailView.swift; sourceTree = "<group>"; };
 		529869AC27DC450300C83613 /* StoreListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreListView.swift; sourceTree = "<group>"; };
-		529869AE27DC45D900C83613 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
-		529869B027DC466B00C83613 /* StoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModel.swift; sourceTree = "<group>"; };
-		52DE2ABB27DDAC4800747B14 /* ProductStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStore.swift; sourceTree = "<group>"; };
+		529869AE27DC45D900C83613 /* ProductStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStore.swift; sourceTree = "<group>"; };
+		529869B027DC466B00C83613 /* StoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAPI.swift; sourceTree = "<group>"; };
 		52DE2ABE27DED49600747B14 /* DebugSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSettingsView.swift; sourceTree = "<group>"; };
 		52DE2AC027DED4D600747B14 /* GeneralPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesView.swift; sourceTree = "<group>"; };
 		52DE2AC227DED93700747B14 /* UpdatesPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesPreferencesView.swift; sourceTree = "<group>"; };
@@ -65,31 +65,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5236446327D990A200707FD3 /* Model */ = {
+		5236446327D990A200707FD3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5236446027D98FF100707FD3 /* AppleStoreAPI.swift */,
+				5236446027D98FF100707FD3 /* FulfillmentMessagesAPIResponse.swift */,
+				5203927527E3F8780070D245 /* StoreDetailAPIResponse.swift */,
 				529869A627DC43D100C83613 /* Product.swift */,
-				529869AE27DC45D900C83613 /* ProductModel.swift */,
-				529869B027DC466B00C83613 /* StoreModel.swift */,
+				5267A4BB27E6435C0020E8A3 /* Store.swift */,
+				529869AE27DC45D900C83613 /* ProductStore.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		5236446427D990AB00707FD3 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				5236446527D9910900707FD3 /* AppleStore.swift */,
+				529869B027DC466B00C83613 /* StoreAPI.swift */,
 			);
 			path = API;
-			sourceTree = "<group>";
-		};
-		52DE2ABA27DDAC3800747B14 /* Persistence */ = {
-			isa = PBXGroup;
-			children = (
-				52DE2ABB27DDAC4800747B14 /* ProductStore.swift */,
-			);
-			path = Persistence;
 			sourceTree = "<group>";
 		};
 		52F325E1273C8F7900AD07D1 = {
@@ -103,11 +96,10 @@
 		52F325E6273C8F7900AD07D1 /* Orchard */ = {
 			isa = PBXGroup;
 			children = (
-				52DE2ABA27DDAC3800747B14 /* Persistence */,
 				524F73A527DAD4C00091BFF4 /* Preview Content */,
 				52F325F9273C8F7A00AD07D1 /* Orchard.entitlements */,
 				5236446427D990AB00707FD3 /* API */,
-				5236446327D990A200707FD3 /* Model */,
+				5236446327D990A200707FD3 /* Models */,
 				52F3260C273CA55200AD07D1 /* Views */,
 				52F325E9273C8F7900AD07D1 /* OrchardApp.swift */,
 				52F325EA273C8F7900AD07D1 /* ContentView.swift */,
@@ -211,8 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52DE2ABC27DDAC4800747B14 /* ProductStore.swift in Sources */,
-				529869B127DC466B00C83613 /* StoreModel.swift in Sources */,
+				529869B127DC466B00C83613 /* StoreAPI.swift in Sources */,
 				5298691627DB09EE00C83613 /* EditProductView.swift in Sources */,
 				52F325FD273C8F7A00AD07D1 /* OrchardApp.swift in Sources */,
 				52F32612273CC19C00AD07D1 /* SettingsView.swift in Sources */,
@@ -222,19 +213,103 @@
 				529869AD27DC450300C83613 /* StoreListView.swift in Sources */,
 				52F32615273CC50F00AD07D1 /* TwilioPreferencesView.swift in Sources */,
 				52DE2AC327DED93700747B14 /* UpdatesPreferencesView.swift in Sources */,
-				5236446727D9910900707FD3 /* AppleStore.swift in Sources */,
 				52F325FF273C8F7A00AD07D1 /* ContentView.swift in Sources */,
 				52F3260F273CA56500AD07D1 /* AddProductView.swift in Sources */,
 				52DE2AC127DED4D600747B14 /* GeneralPreferencesView.swift in Sources */,
-				5236446227D98FF100707FD3 /* AppleStoreAPI.swift in Sources */,
+				5267A4BC27E6435C0020E8A3 /* Store.swift in Sources */,
+				5236446227D98FF100707FD3 /* FulfillmentMessagesAPIResponse.swift in Sources */,
 				529869A727DC43D100C83613 /* Product.swift in Sources */,
-				529869AF27DC45D900C83613 /* ProductModel.swift in Sources */,
+				529869AF27DC45D900C83613 /* ProductStore.swift in Sources */,
+				5203927627E3F8780070D245 /* StoreDetailAPIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		5265329327E140980085DA86 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Beta;
+		};
+		5265329427E140980085DA86 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon$(BUNDLE_ID_SUFFIX)";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUNDLE_ID_SUFFIX = .beta;
+				CODE_SIGN_ENTITLEMENTS = Orchard/Orchard.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "Orchard/Preview\\ Content";
+				DEVELOPMENT_TEAM = J2HUV3NVUY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.behnke.Orchard;
+				PRODUCT_NAME = Orchard.beta;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Beta;
+		};
 		52F32604273C8F7A00AD07D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -349,8 +424,9 @@
 		52F3260A273C8F7A00AD07D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon$(BUNDLE_ID_SUFFIX)";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUNDLE_ID_SUFFIX = .debug;
 				CODE_SIGN_ENTITLEMENTS = Orchard/Orchard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -379,8 +455,9 @@
 		52F3260B273C8F7A00AD07D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon$(BUNDLE_ID_SUFFIX)";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUNDLE_ID_SUFFIX = "";
 				CODE_SIGN_ENTITLEMENTS = Orchard/Orchard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -414,6 +491,7 @@
 			buildConfigurations = (
 				52F32604273C8F7A00AD07D1 /* Debug */,
 				52F32605273C8F7A00AD07D1 /* Release */,
+				5265329327E140980085DA86 /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -423,6 +501,7 @@
 			buildConfigurations = (
 				52F3260A273C8F7A00AD07D1 /* Debug */,
 				52F3260B273C8F7A00AD07D1 /* Release */,
+				5265329427E140980085DA86 /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

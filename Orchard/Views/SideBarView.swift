@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SideBarView: View {
-  @ObservedObject var products = ProductModel()
+  @EnvironmentObject var products: ProductStore
   @State private var selectedProduct: Product? = Product()
   @State private var shouldShowAddProductView: Bool = false
   @State private var shouldShowEditProductView: Bool = false
@@ -20,7 +20,6 @@ struct SideBarView: View {
     List(selection: $selectedProduct, content: {
       Section("Products") {
         ForEach(products.products, id:\.self) { product in
-          
           HStack {
             if products.products.firstIndex(of: product)! == 0 {
               NavigationLink(destination: StoreListView(product: product), isActive: $isDefaultItemActive) {
@@ -33,35 +32,12 @@ struct SideBarView: View {
                 Text(product.name)
               }
             }
-            
-            
-//            Spacer()
-//            Spacer()
-//            Menu {
-//              Button(action: {
-//                print("Pressed delete in context menu")
-//                if let productToDelete = selectedProduct {
-//                  products.deleteProduct(product: productToDelete)
-//                }
-//              }, label: {
-//                Text("Delete")
-//              })
-//            }label: {
-//              Image(systemName: "ellipsis.circle")
-//            }.menuStyle(BorderlessButtonMenuStyle()).menuIndicator(.hidden).opacity(isHover && products.products.firstIndex(of: product)! == hoveringIndex ? 1:0)
-            
-            
-            
           }
-//          .onHover { hover in
-//            isHover = hover
-//            hoveringIndex = products.products.firstIndex(of: product) ?? 0
-//          }
         }
         
       }.collapsible(false)})
       .onAppear{
-        ProductModel.load { result in
+        ProductStore.load { result in
           switch result {
           case .success(let loadedProducts):
             products.products = loadedProducts
@@ -90,42 +66,22 @@ struct SideBarView: View {
         
       }))
       .toolbar {
-//        ToolbarItem {
-//          Button(action: {
-//            self.shouldShowAddProductView.toggle()
-//          }) {
-//            Label("Add Item", systemImage: "plus")
-//          }
-//          .keyboardShortcut("n", modifiers: .command)
-//          .sheet(isPresented: self.$shouldShowAddProductView) {AddProductView().environmentObject(products)}
-//        }
         ToolbarItem {
           Spacer()
         }
-//        ToolbarItem {
-//          Button(action: {
-//            withAnimation{
-//              print("Pressed delete button in toolbar")
-//              print($selectedProduct)
-//              if let productToDelete = selectedProduct {
-//                products.deleteProduct(product: productToDelete)
-//              }
-//
-//            }
-//          }) {
-//            Label("Delete Item", systemImage: "trash")
-//          }
-//        }
       }
       .listStyle(SidebarListStyle())
       .frame(minWidth: 200)
     HStack {
-      Button(action: {}, label: {
+      Button(action: {
+        self.shouldShowAddProductView.toggle()
+      }, label: {
         HStack {
           Image(systemName: "plus.circle")
           Text("Add new product")
         }
       }).buttonStyle(.borderless).padding([.bottom, .leading], 7.5)
+        .sheet(isPresented: self.$shouldShowAddProductView) {AddProductView().environmentObject(products)}
       Spacer()
     }
   }

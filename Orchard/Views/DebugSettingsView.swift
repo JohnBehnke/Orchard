@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct DebugSettingsView: View {
+  @EnvironmentObject var storeAPI: StoreAPI
+  @EnvironmentObject var productStore: ProductStore
   var body: some View {
     VStack {
       Button(action:{
         do {
-          let url = try ProductModel.fileURL()
+          let url = try ProductStore.fileURL()
           if url.hasDirectoryPath {
             NSWorkspace.shared.selectFile(nil, inFileViewerRootedAtPath: url.path)
           } else {
@@ -33,7 +35,15 @@ struct DebugSettingsView: View {
         Text("Load Sample Data")
       })
       
-      Button(action:{}, label: {
+      Button(action:{
+        Task {
+          for product in self.productStore.products {
+            await self.storeAPI.performSearch(for: product.modelNumber, near: product.searchPostalCode)
+          }
+        }
+        
+        
+      }, label: {
         Text("Force Store Check")
       })
     }
@@ -41,7 +51,7 @@ struct DebugSettingsView: View {
 }
 
 struct DebugSettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-      DebugSettingsView()
-    }
+  static var previews: some View {
+    DebugSettingsView()
+  }
 }

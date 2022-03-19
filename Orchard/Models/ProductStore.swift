@@ -1,5 +1,5 @@
 //
-//  ProductModel.swift
+//  ProductStore.swift
 //  Orchard
 //
 //  Created by John Behnke on 3/11/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 @MainActor
-class ProductModel: ObservableObject {
+class ProductStore: ObservableObject {
   @Published var products: [Product] = []
   func updateProduct(product: Product) {
     if let row =  products.firstIndex(where: {$0.id == product.id}) {
@@ -17,7 +17,7 @@ class ProductModel: ObservableObject {
   
   func addProduct(product: Product) {
     products.append(product)
-    ProductModel.save(products: products) { result in
+    ProductStore.save(products: products) { result in
       if case .failure(let error) = result {
         fatalError(error.localizedDescription)
       }
@@ -27,7 +27,7 @@ class ProductModel: ObservableObject {
   func deleteProduct(product: Product) {
     if let row =  products.firstIndex(where: {$0.id == product.id}) {
       products.remove(at: row)
-      ProductModel.save(products: products) { result in
+      ProductStore.save(products: products) { result in
         if case .failure(let error) = result {
           fatalError(error.localizedDescription)
         }

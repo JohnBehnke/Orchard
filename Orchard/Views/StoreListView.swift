@@ -10,25 +10,25 @@ import SwiftUI
 struct StoreListView: View {
   
   @Environment(\.openURL) var openURL
-  @ObservedObject var storeModel: StoreModel
+  @EnvironmentObject var storeAPI: StoreAPI
   @State private var selectedStore: Store?
   var product: Product
   init(product: Product)  {
     self.product = product
-    storeModel =  StoreModel()
   }
   var body: some View {
+    
     Group {
-      switch self.storeModel.isSearching {
+      switch self.storeAPI.isSearching {
       case false:
-        List(storeModel.stores) { store in
+        List(storeAPI.stores, id: \.self) { store in
           NavigationLink {
-            StoreDetailView(store: store, purchaseUrl: product.purchaseURL)
+            StoreDetailView(store: store)
           } label: {
             HStack {
-              Image(systemName: "circle.fill").foregroundColor(store.partsAvailability.model.storeSelectionEnabled ? Color.green : Color.red)
+              Image(systemName: "circle.fill").foregroundColor(store.productAvailability[product.modelNumber]?.selectable ?? false ? Color.green : Color.red)
               VStack(alignment: .leading) {
-                Text(store.address.address)
+                Text(store.information.name)
               }
               
             }.padding()
@@ -39,7 +39,8 @@ struct StoreListView: View {
       }
     }
     .task {
-      await storeModel.getStores(postalCode: product.searchPostalCode, modelNumber: product.modelNumber)
+      storeAPI.isSearching = true
+      await storeAPI.performSearch(for: product.modelNumber, near: product.searchPostalCode)
     }
     
     .listStyle(.inset(alternatesRowBackgrounds: true))
@@ -61,9 +62,10 @@ struct StoreListView: View {
           Text("Last checked \(itemFormatter.string(from: product.timeLastChecked))").font(Font.caption2).italic()
         }
       }
-      ToolbarItem {
-        Button(action: {openURL(product.purchaseURL)}, label: {Image(systemName: "bag")}).disabled(!storeModel.stores.contains(where: {$0.partsAvailability.model.storeSelectionEnabled}))
-      }
+            ToolbarItem {
+              Button(action: {openURL(product.purchaseURL)}, label: {Image(systemName: storeAPI.isEligableForPurchase ? "bag.badge.plus" : "bag")}).disabled(!storeAPI.isEligableForPurchase)
+              //
+            }
     }
   }
 }

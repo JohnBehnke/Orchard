@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddProductView: View {
   @Environment(\.presentationMode) var presentationMode
-  @EnvironmentObject var products: ProductModel
+  @EnvironmentObject var products: ProductStore
   @State var productName = ""
   @State var modelNumber = ""
   @State var purchaseUrl = ""

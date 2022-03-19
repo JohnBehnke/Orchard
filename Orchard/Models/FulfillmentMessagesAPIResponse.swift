@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AppleStoreAPIResponse: Decodable {
+struct FulfillmentMessagesAPIResponse: Decodable {
   let head: Head
   let body: Body
 }
@@ -26,16 +26,14 @@ struct Content: Decodable {
 
 // MARK: - PickupMessage
 struct PickupMessage: Decodable {
-  let stores: [Store]
+  let stores: [StoreInfo]
 }
 struct DataClass: Codable {
 }
 
 // MARK: - Store
-struct Store: Decodable, Identifiable {
+struct StoreInfo: Decodable {
   
-  
-  let id: UUID = UUID()
   let storeName: String
   let city, storeNumber, reservationUrl, state, country: String
   var partsAvailability: ModelIdentifier
@@ -43,6 +41,7 @@ struct Store: Decodable, Identifiable {
   let address: StoreAddress
   let storedistance, storelatitude, storelongitude: Double
   let retailStore: RetailStore
+  let storeDetails: StoreDetailAPIResponse?
   
 }
 
@@ -56,9 +55,7 @@ struct StoreAddress: Codable {
 // MARK: - PartsAvailability
 struct ModelIdentifier: Decodable {
   var model: PartsAvailability
-  
-  
-  
+
   private struct DynamicCodingKeys: CodingKey {
     var stringValue: String
     init?(stringValue: String) {
@@ -88,8 +85,6 @@ struct RetailStore: Decodable {
   let secureStoreImageUrl: String
 }
 
-
-
 // MARK: - Head
 struct Head: Decodable {
   let status: String
@@ -97,26 +92,26 @@ struct Head: Decodable {
 }
 
 
-extension Store {
-  static let demoStore = loadPreviewData("Preview Content/demoStore")
-  
-  static private func loadPreviewData(_ name: String) -> Store {
-    guard let url = Bundle.main.url(forResource: name, withExtension: "json") else {
-      print("Couldn't find demo file")
-      fatalError("Couldn't find demo file")
-    }
-    let data = try? Data(contentsOf: url)
-    let stores = try? JSONDecoder().decode(Store.self, from: data!)
-    return stores!
-  }
-}
+//extension Store {
+//  static let demoStore = loadPreviewData("Preview Content/demoStore")
+//
+//  static private func loadPreviewData(_ name: String) -> Store {
+//    guard let url = Bundle.main.url(forResource: name, withExtension: "json") else {
+//      print("Couldn't find demo file")
+//      fatalError("Couldn't find demo file")
+//    }
+//    let data = try? Data(contentsOf: url)
+//    let stores = try? JSONDecoder().decode(Store.self, from: data!)
+//    return stores!
+//  }
+//}
 
-extension Store: Hashable {
-  static func == (lhs: Store, rhs: Store) -> Bool {
-    return lhs.storeNumber >= rhs.storeNumber
-  }
-  func hash(into hasher: inout Hasher) {
-    hasher.combine(id)
-    
-  }
-}
+//extension Store: Hashable {
+//  static func == (lhs: Store, rhs: Store) -> Bool {
+//    return lhs.storeNumber >= rhs.storeNumber
+//  }
+//  func hash(into hasher: inout Hasher) {
+//    hasher.combine(id)
+//
+//  }
+//}

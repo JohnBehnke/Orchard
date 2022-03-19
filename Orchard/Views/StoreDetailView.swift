@@ -10,43 +10,142 @@ import SwiftUI
 struct StoreDetailView: View {
   @Environment(\.openURL) var openURL
   var store: Store
-  var purchaseUrl: URL
   var body: some View {
-    VStack {
-      AsyncImage(
-        url: URL(string: store.retailStore.secureStoreImageUrl)!,
-        content: { image in
-          image.resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(maxWidth: 500, maxHeight: 300)
-        },
-        placeholder: {
-          ProgressView()
-        }
-      ).clipShape(RoundedRectangle(cornerRadius: 5))
-      Text(store.address.address)
-      Text(String(format: "%.2f miles away", store.storedistance))
-      HStack {
-        HStack {
-          Button(action: {
-            let url = URL(string: "tel://\(store.phoneNumber)")
-            openURL(url ?? URL(string: "tel://980-3331708")!)
-          }, label: {Image(systemName: "phone")})
-          Button(action: {
-            let address = "\(store.address.address2), \(store.city), \(store.state) \(store.address.postalCode), \(store.country)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let url = URL(string: "maps://?address=\(address!)")
-            openURL(url!)
-          }, label: {Image(systemName: "map")})
-          Button(action: {openURL((URL(string: store.reservationUrl) ?? URL(string: "https://apple.com/retail"))!)}, label: {Image(systemName: "info.circle")})
-        }
+    Spacer()
+    ScrollView(showsIndicators: true) {
+      VStack {
+        Spacer()
+        Spacer()
+        Spacer()
+        Spacer()
+      }
+      
+      VStack{
+        Text(store.information.name).font(.largeTitle)
+        
+        
+        VStack {
+          AsyncImage(url: URL(string: store.information.image)!, transaction: Transaction(animation: .spring())) { phase in
+            switch phase {
+            case .empty:
+              ZStack {
+                Rectangle().frame(width: 400, height: 250).foregroundColor(.secondary).opacity(0.1)
+                ProgressView()
+              }
+              
+            case .success(let image):
+              image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(maxWidth: 400, maxHeight: 250)
+              
+            case .failure(_):
+              Image(systemName: "exclamationmark.icloud")
+                .resizable()
+                .scaledToFit()
+              
+            @unknown default:
+              Image(systemName: "exclamationmark.icloud")
+            }
+          }.clipShape(RoundedRectangle(cornerRadius: 5))
+          VStack {
+            
+            VStack(alignment: .center){
+              Text(store.address.lineTwo)
+              Text("\(store.address.city), \(store.address.stateCode) \(store.address.postal)")
+              Spacer()
+              Text(store.information.phoneNumber)
+            }
+          }.padding()
+          Divider()
+          HStack(alignment: .top){
+            VStack(alignment: .center){
+              Text("Store Hours").font(.title).padding(.bottom, 5)
+              Spacer()
+              HStack{
+                Spacer()
+                VStack(alignment: .leading) {
+                  ForEach(store.schedule.days, id: \.self) { day in
+                    Text(day.shortName)
+                      .if(day.shortName == "Today"){ text in
+                        text.bold()
+                      }.padding(.bottom, 0.5)
+                  }
+                }
+                Spacer().frame(width: 50)
+                VStack(alignment: .leading) {
+                  ForEach(store.schedule.days, id: \.self) { day in
+                    Text(day.formattedDate)
+                      .if(day.shortName == "Today"){ text in
+                        text.bold()
+                      }.padding(.bottom, 0.5)
+                  }
+                }
+                Spacer().frame(width: 50)
+                VStack(alignment: .trailing) {
+                  ForEach(store.schedule.days, id: \.self) { day in
+                    Text(day.formattedTime)
+                      .if(day.shortName == "Today"){ text in
+                        text.bold()
+                      }.padding(.bottom, 0.5)
+                    
+                  }
+                }
+                Spacer()
+              }
+              Spacer()
+              
+            }
+          }.padding()
+          
+          HStack {
+            Spacer()
+            VStack {
+              Text(store.information.messageTitle)
+                .font(.headline).padding(.bottom, 5)
+              Text(store.information.message).font(.subheadline)
+            }.padding().background(RoundedRectangle(cornerRadius: 5).foregroundColor(.secondary).opacity(0.1))
+            Spacer()
+          }
+          
+          
+          
+          
+        }.padding(25)
+      }
+      VStack {
+        Spacer()
+        Spacer()
+        Spacer()
+        Spacer()
       }
     }
+    //    .task {
+    //      storeDetails = await AppleStoreAPI().performSearch(storeName: store.storeName)
+    //    }
   }
 }
 
-struct StoreDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-      StoreDetailView(store: Store.demoStore, purchaseUrl: URL(string: "https://apple.com")!)
-        .frame(width: 500.0, height: 500.0)
+//struct StoreDetailView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    Group {
+//      StoreDetailView(store: Store.demoStore, purchaseUrl: URL(string: "https://apple.com")!)
+//        .preferredColorScheme(.light)
+//        .frame(width: 450.0, height: 800)
+//      StoreDetailView(store: Store.demoStore, purchaseUrl: URL(string: "https://apple.com")!)
+//        .preferredColorScheme(.dark)
+//        .frame(width: 500, height: 600)
+//    }
+//  }
+//}
+
+
+extension View {
+  @ViewBuilder func `if`<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
+    if condition {
+      transform(self)
+    } else {
+      self
     }
+  }
 }
