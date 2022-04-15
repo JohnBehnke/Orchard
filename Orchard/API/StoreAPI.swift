@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 class StoreAPI: ObservableObject {
   @Published var stores = [Store]()
-  @Published var isSearching:Bool = true
+  @Published var isSearching: Bool = true
   @Published var isEligableForPurchase: Bool = false
   init() {
     stores =  []
@@ -23,7 +23,7 @@ class StoreAPI: ObservableObject {
       fatalError()
     }
     do {
-      let (data, _) = try await URLSession.shared.data(from: url);
+      let (data, _) = try await URLSession.shared.data(from: url)
       let result = try JSONDecoder().decode(FulfillmentMessagesAPIResponse.self, from: data)
       //      return result.body.content.pickupMessage.stores
       return result.body.content.pickupMessage.stores
@@ -43,6 +43,7 @@ class StoreAPI: ObservableObject {
       fatalError()
     }
     do {
+      // swiftlint:disable all
       let (data, _) = try! await URLSession.shared.data(from: url);
       return try JSONDecoder().decode(StoreDetailAPIResponse.self, from: data)
       
@@ -61,14 +62,18 @@ class StoreAPI: ObservableObject {
       let productAvailability: ProductAvailability = ProductAvailability(
         pickable: store.partsAvailability.model.storePickEligible,
         searchable: store.partsAvailability.model.storeSearchEnabled,
-        selectable: store.partsAvailability.model.storeSelectionEnabled
+        selectable: store.partsAvailability.model.storeSelectionEnabled,
+        pickupSearchQuote: store.partsAvailability.model.pickupSearchQuote
       )
       if productAvailability.selectable { self.isEligableForPurchase = true }
       if let index =  self.stores.firstIndex(where: {$0.information.number == store.storeNumber}) {
         self.isSearching = false
         self.stores[index].productAvailability[modelIdentifer] = productAvailability
       } else {
-        let additionalStoreInformation: StoreDetailAPIResponse = await getAdditionalStoreInformation(for: store.storeName)!
+        guard let additionalStoreInformation: StoreDetailAPIResponse = await getAdditionalStoreInformation(for: store.storeName) else {
+          return
+        }
+        
         let storeInformation: Information = Information(
           name: store.storeName,
           image: store.retailStore.secureStoreImageUrl,
@@ -82,6 +87,7 @@ class StoreAPI: ObservableObject {
           lineTwo: store.address.address2,
           city: store.city,
           stateCode: store.state,
+          country: store.country,
           postal: store.address.postalCode,
           longitude: store.storelongitude,
           latitude: store.storelongitude

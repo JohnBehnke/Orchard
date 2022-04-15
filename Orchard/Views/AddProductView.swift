@@ -15,7 +15,7 @@ struct AddProductView: View {
   @State var purchaseUrl = ""
   @State var zipCode = ""
   @State var shouldSendNotification = false
-  
+
   var body: some View {
     VStack(alignment: .leading) {
       Text("New Product")
@@ -51,7 +51,7 @@ struct AddProductView: View {
       Divider()
       HStack {
         Spacer()
-        Button("Cancel", role: .cancel,  action: {
+        Button("Cancel", role: .cancel, action: {
           presentationMode.wrappedValue.dismiss()
         }).keyboardShortcut(.cancelAction)
         Button("OK", action: {addItem()}).disabled(false).keyboardShortcut(.defaultAction)
@@ -60,17 +60,28 @@ struct AddProductView: View {
     .padding(20)
     .frame(width: 300, height: 250, alignment: .topLeading)
   }
-  
+
   private func addItem() {
-    let newProduct: Product = Product(name: productName, modelNumber: modelNumber, purchaseURL: URL(string: purchaseUrl)!, searchPostalCode: zipCode, shouldSendNotification: shouldSendNotification, timeLastChecked: Date())
-    products.addProduct(product:newProduct)
+    let newProduct: Product = Product(
+      name: productName,
+      modelNumber: modelNumber,
+      purchaseURL: purchaseUrl,
+      searchPostalCode: zipCode,
+      shouldSendNotification: shouldSendNotification,
+      timeLastChecked: Date()
+    )
+    products.addProduct(product: newProduct)
       presentationMode.wrappedValue.dismiss()
   }
 }
 
-
 struct SwiftUIView_Previews: PreviewProvider {
   static var previews: some View {
     AddProductView()
+      .frame(width: 300, height: 400)
+      .preferredColorScheme(.light)
+    AddProductView()
+      .frame(width: 300, height: 400)
+      .preferredColorScheme(.dark)
   }
 }

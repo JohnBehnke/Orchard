@@ -9,12 +9,11 @@ import SwiftUI
 
 struct EditProductView: View {
   @Environment(\.presentationMode) var presentationMode
-  @EnvironmentObject var products:ProductStore
+  @EnvironmentObject var products: ProductStore
   @Binding var product: Product
-  
+
   var body: some View {
     VStack(alignment: .leading) {
-//      Text(product.name ?? "NOT FOUND")
       Text("Edit Product")
         .fontWeight(.bold)
       HStack {
@@ -29,12 +28,12 @@ struct EditProductView: View {
         TextField("", text: $product.modelNumber)
           .textFieldStyle(RoundedBorderTextFieldStyle())
       }
-//      HStack {
-//        Text("Store URL:")
-//        Spacer()
-//        TextField("\($product.purchaseURL.debugDescription)", text: $purchaseUrl)
-//          .textFieldStyle(RoundedBorderTextFieldStyle())
-//      }
+      HStack {
+        Text("Store URL:")
+        Spacer()
+        TextField("", text: $product.purchaseURL)
+          .textFieldStyle(RoundedBorderTextFieldStyle())
+      }
       Divider()
       HStack {
         Text("Zip Code:")
@@ -48,13 +47,13 @@ struct EditProductView: View {
       Divider()
       HStack {
         Spacer()
-        Button("Cancel", role: .cancel,  action: {
+        Button("Cancel", role: .cancel, action: {
           presentationMode.wrappedValue.dismiss()
         }).keyboardShortcut(.cancelAction)
         Button("OK", action: {
           products.updateProduct(product: product)
           presentationMode.wrappedValue.dismiss()
-          
+
         }).disabled(false).keyboardShortcut(.defaultAction)
       }
     }
@@ -63,14 +62,13 @@ struct EditProductView: View {
   }
 }
 
-//struct EditProductView_Previews: PreviewProvider {
+// struct EditProductView_Previews: PreviewProvider {
 //    static var previews: some View {
-////      EditProductView(product: Product
+//      EditProductView(product: Product)
 //    }
-//}
+// }
 
-
-func ??<T>(lhs: Binding<Optional<T>>, rhs: T) -> Binding<T> {
+func ?? <T>(lhs: Binding<T?>, rhs: T) -> Binding<T> {
     Binding(
         get: { lhs.wrappedValue ?? rhs },
         set: { lhs.wrappedValue = $0 }

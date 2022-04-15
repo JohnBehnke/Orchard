@@ -8,16 +8,22 @@
 import SwiftUI
 
 struct StoreListView: View {
-  
   @Environment(\.openURL) var openURL
   @EnvironmentObject var storeAPI: StoreAPI
   @State private var selectedStore: Store?
   var product: Product
-  init(product: Product)  {
+  init(product: Product) {
     self.product = product
   }
+  fileprivate func getAvailabilityColor(_ store: Store) -> Color {
+    return store.productAvailability[product.modelNumber]?.selectable ?? false
+    ? store.productAvailability[product.modelNumber]?.pickupQuote == "Available Today"
+      || store.productAvailability[product.modelNumber]?.pickupQuote == "Available Tomorrow"
+    ? Color.green
+    : Color.yellow
+    : Color.red
+  }
   var body: some View {
-    
     Group {
       switch self.storeAPI.isSearching {
       case false:
@@ -26,11 +32,13 @@ struct StoreListView: View {
             StoreDetailView(store: store)
           } label: {
             HStack {
-              Image(systemName: "circle.fill").foregroundColor(store.productAvailability[product.modelNumber]?.selectable ?? false ? Color.green : Color.red)
+              Image(systemName: "circle.fill")
+                .foregroundColor(getAvailabilityColor(store))
               VStack(alignment: .leading) {
                 Text(store.information.name)
+                Text(store.productAvailability[product.modelNumber]?.pickupQuote ?? "")
+                  .font(.subheadline)
               }
-              
             }.padding()
           }
         }
@@ -42,7 +50,6 @@ struct StoreListView: View {
       storeAPI.isSearching = true
       await storeAPI.performSearch(for: product.modelNumber, near: product.searchPostalCode)
     }
-    
     .listStyle(.inset(alternatesRowBackgrounds: true))
     .navigationTitle("")
     .toolbar {
@@ -54,7 +61,6 @@ struct StoreListView: View {
         } label: {
           Label("Toggle sidebar", systemImage: "sidebar.left")
         }
-        
       }
       ToolbarItem(placement: ToolbarItemPlacement.navigation) {
         VStack(alignment: .leading) {
@@ -62,16 +68,20 @@ struct StoreListView: View {
           Text("Last checked \(itemFormatter.string(from: product.timeLastChecked))").font(Font.caption2).italic()
         }
       }
-            ToolbarItem {
-              Button(action: {openURL(product.purchaseURL)}, label: {Image(systemName: storeAPI.isEligableForPurchase ? "bag.badge.plus" : "bag")}).disabled(!storeAPI.isEligableForPurchase)
-              //
-            }
+      ToolbarItem {
+        Button(action: {
+          let url: URL = URL(string: product.purchaseURL)!
+          openURL(url)
+        }, label: {Image(systemName: storeAPI.isEligableForPurchase ? "bag.badge.plus" : "bag")})
+        .disabled(!storeAPI.isEligableForPurchase)
+      }
     }
   }
 }
 
-struct StoreListView_Previews: PreviewProvider {
-  static var previews: some View {
-    StoreListView(product: Product(name: "Demo Machine", modelNumber: "Demo Model Number", purchaseURL: URL(string: "https://apple.com")!, searchPostalCode: "12345", shouldSendNotification: false, timeLastChecked: Date()))
-  }
-}
+// struct StoreListView_Previews: PreviewProvider {
+//  static var previews: some View {
+// swiftlint:disable all
+//    StoreListView(product: Product(name: "Demo Machine", modelNumber: "Demo Model Number", purchaseURL: "https://apple.com", searchPostalCode: "12345", shouldSendNotification: false, timeLastChecked: Date()))
+//  }
+//}
