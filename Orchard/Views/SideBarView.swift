@@ -47,6 +47,7 @@ struct SideBarView: View {
         }
       }}
     .sheet(isPresented: self.$shouldShowEditProductView) {
+      ProductConfiguratorView()
       EditProductView(product: $selectedProduct.toNonOptional()).environmentObject(products)
     }
     .contextMenu(ContextMenu(menuItems: {
@@ -81,7 +82,11 @@ struct SideBarView: View {
           Text("Add new product")
         }
       }).buttonStyle(.borderless).padding([.bottom, .leading], 7.5)
-        .sheet(isPresented: self.$shouldShowAddProductView) { AddProductView().environmentObject(products) }
+        .sheet(isPresented: self.$shouldShowAddProductView) {
+//          AddProductView().environmentObject(products)
+          ProductConfiguratorView()
+          
+        }
       Spacer()
     }
   }

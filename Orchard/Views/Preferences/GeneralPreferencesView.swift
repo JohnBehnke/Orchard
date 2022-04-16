@@ -14,6 +14,7 @@ struct GeneralPreferencesView: View {
   @ObservedObject var appSettings = AppSettings.shared
   @State var increment = 0
   @State var themeSelection: Int = 0
+  @State var postalCode: String = ""
   @Environment(\.colorScheme) var colorScheme
 
   var body: some View {
@@ -29,18 +30,15 @@ struct GeneralPreferencesView: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: 67, height: 44)
               .clipShape(RoundedRectangle(cornerRadius: 5))
-              .if(themeSelection == 0) { view in
-                view
-                  .overlay(RoundedRectangle(cornerRadius: 5).stroke(.tint, lineWidth: 2))
-              }
-
-              .onTapGesture {
-                themeSelection = 0
-//                Appearances.applyAppearance(Appearances.light)
-//                appSettings.currentTheme = 0
-                NSApp.appearance = .init(named: .aqua)
-//                Appearances.applyAppearance(Appearances.light)
-              }
+              
+              .selectable(
+                selection: $themeSelection,
+                tag: 0,
+                shape: AnyShape(RoundedRectangle(cornerRadius: 5)),
+                strokeTint: .accentColor,
+                stokeWidth: 2,
+                action: { NSApp.appearance = .init(named: .aqua) }
+              )
             Text("Light")
           }
           VStack {
@@ -49,15 +47,14 @@ struct GeneralPreferencesView: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: 67, height: 44)
               .clipShape(RoundedRectangle(cornerRadius: 5))
-              .if(themeSelection == 1) { view in
-                view
-                  .overlay(RoundedRectangle(cornerRadius: 5).stroke(.tint, lineWidth: 2))
-              }
-
-              .onTapGesture {
-               themeSelection = 1
-                NSApp.appearance = .init(named: .darkAqua)
-              }
+              .selectable(
+                selection: $themeSelection,
+                tag: 1,
+                shape: AnyShape(RoundedRectangle(cornerRadius: 5)),
+                strokeTint: .accentColor,
+                stokeWidth: 2,
+                action: { NSApp.appearance = .init(named: .darkAqua) }
+              )
             Text("Dark")
           }
           VStack {
@@ -66,16 +63,14 @@ struct GeneralPreferencesView: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: 67, height: 44)
               .clipShape(RoundedRectangle(cornerRadius: 5))
-              .if(themeSelection == 2) { view in
-                view
-                  .overlay(RoundedRectangle(cornerRadius: 5).stroke(.tint, lineWidth: 2))
-              }
-
-              .onTapGesture {
-//                appSettings.currentTheme = 2
-                themeSelection = 2
-                NSApp.appearance = nil
-              }
+              .selectable(
+                selection: $themeSelection,
+                tag: 2,
+                shape: AnyShape(RoundedRectangle(cornerRadius: 5)),
+                strokeTint: .accentColor,
+                stokeWidth: 2,
+                action: { NSApp.appearance = nil }
+              )
             Text("Auto")
           }
 
@@ -92,6 +87,12 @@ struct GeneralPreferencesView: View {
           } label: {
             Text("Search Interval: ")
           } .frame(width: 220)
+        }
+        
+        HStack {
+          Text("Zip Code:")
+          TextField("", text: $postalCode).frame(width: 80)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
         }
         Button("Request Permission") {
           UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
@@ -129,10 +130,10 @@ struct GeneralPreferencesView: View {
 
 struct GeneralPreferencesView_Previews: PreviewProvider {
   static var previews: some View {
-    GeneralPreferencesView()
+    GeneralPreferencesView(postalCode: "")
       .frame(width: 500, height: 400)
       .preferredColorScheme(.light)
-    GeneralPreferencesView()
+    GeneralPreferencesView(postalCode: "")
       .frame(width: 500, height: 400)
       .preferredColorScheme(.dark
       )

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5203927627E3F8780070D245 /* StoreDetailAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5203927527E3F8780070D245 /* StoreDetailAPIResponse.swift */; };
+		520504082809D8B800E10DB6 /* ProductConfiguratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520504072809D8B800E10DB6 /* ProductConfiguratorView.swift */; };
 		5236446227D98FF100707FD3 /* FulfillmentMessagesAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5236446027D98FF100707FD3 /* FulfillmentMessagesAPIResponse.swift */; };
 		524F73A627DAD4C00091BFF4 /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = 524F73A527DAD4C00091BFF4 /* Preview Content */; };
 		5267A4BC27E6435C0020E8A3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267A4BB27E6435C0020E8A3 /* Store.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		5203927527E3F8780070D245 /* StoreDetailAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailAPIResponse.swift; sourceTree = "<group>"; };
+		520504072809D8B800E10DB6 /* ProductConfiguratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductConfiguratorView.swift; sourceTree = "<group>"; };
 		5236446027D98FF100707FD3 /* FulfillmentMessagesAPIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FulfillmentMessagesAPIResponse.swift; sourceTree = "<group>"; };
 		524F73A527DAD4C00091BFF4 /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preview Content"; sourceTree = "<group>"; };
 		5267A4BB27E6435C0020E8A3 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				52F802B427E6A1520085B0A7 /* Preferences */,
 				52F325EA273C8F7900AD07D1 /* MainView.swift */,
 				52F3260D273CA56500AD07D1 /* AddProductView.swift */,
+				520504072809D8B800E10DB6 /* ProductConfiguratorView.swift */,
 				5298691527DB09EE00C83613 /* EditProductView.swift */,
 				529869A827DC445B00C83613 /* SideBarView.swift */,
 				529869AA27DC44A400C83613 /* StoreDetailView.swift */,
@@ -261,6 +264,7 @@
 				52F325FF273C8F7A00AD07D1 /* MainView.swift in Sources */,
 				52F3260F273CA56500AD07D1 /* AddProductView.swift in Sources */,
 				52DE2AC127DED4D600747B14 /* GeneralPreferencesView.swift in Sources */,
+				520504082809D8B800E10DB6 /* ProductConfiguratorView.swift in Sources */,
 				5267A4BC27E6435C0020E8A3 /* Store.swift in Sources */,
 				5236446227D98FF100707FD3 /* FulfillmentMessagesAPIResponse.swift in Sources */,
 				529869A727DC43D100C83613 /* Product.swift in Sources */,

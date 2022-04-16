@@ -44,7 +44,7 @@ class StoreAPI: ObservableObject {
     }
     do {
       // swiftlint:disable all
-      let (data, _) = try! await URLSession.shared.data(from: url);
+      let (data, _) = try await URLSession.shared.data(from: url);
       return try JSONDecoder().decode(StoreDetailAPIResponse.self, from: data)
       
     } catch {
