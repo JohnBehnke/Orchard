@@ -9,13 +9,13 @@ import SwiftUI
 
 struct SideBarView: View {
   @EnvironmentObject var products: ProductStore
-  @State private var selectedProduct: Product? = Product()
+  @State private var selectedProduct: TrackedProduct? = TrackedProduct()
   @State private var shouldShowAddProductView: Bool = false
   @State private var shouldShowEditProductView: Bool = false
   @State private var isHover = false
   @State private var hoveringIndex = 0
   @State private var isDefaultItemActive = true
-  
+
   var body: some View {
     List(selection: $selectedProduct, content: {
       Section("") {
@@ -85,7 +85,7 @@ struct SideBarView: View {
         .sheet(isPresented: self.$shouldShowAddProductView) {
 //          AddProductView().environmentObject(products)
           ProductConfiguratorView()
-          
+
         }
       Spacer()
     }
@@ -98,11 +98,11 @@ struct SideBarView_Previews: PreviewProvider {
   }
 }
 
-extension Binding where Value == Product? {
-  func toNonOptional() -> Binding<Product> {
-    return Binding<Product>(
+extension Binding where Value == TrackedProduct? {
+  func toNonOptional() -> Binding<TrackedProduct> {
+    return Binding<TrackedProduct>(
       get: {
-        return self.wrappedValue ?? Product()
+        return self.wrappedValue ?? TrackedProduct()
       },
       set: {
         self.wrappedValue = $0

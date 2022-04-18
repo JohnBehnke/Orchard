@@ -62,7 +62,7 @@ struct AddProductView: View {
   }
 
   private func addItem() {
-    let newProduct: Product = Product(
+    let newProduct: TrackedProduct = TrackedProduct(
       name: productName,
       modelNumber: modelNumber,
       purchaseURL: purchaseUrl,

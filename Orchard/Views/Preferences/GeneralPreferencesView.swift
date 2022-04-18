@@ -30,7 +30,7 @@ struct GeneralPreferencesView: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: 67, height: 44)
               .clipShape(RoundedRectangle(cornerRadius: 5))
-              
+
               .selectable(
                 selection: $themeSelection,
                 tag: 0,
@@ -88,7 +88,7 @@ struct GeneralPreferencesView: View {
             Text("Search Interval: ")
           } .frame(width: 220)
         }
-        
+
         HStack {
           Text("Zip Code:")
           TextField("", text: $postalCode).frame(width: 80)

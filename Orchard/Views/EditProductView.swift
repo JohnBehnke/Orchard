@@ -10,7 +10,7 @@ import SwiftUI
 struct EditProductView: View {
   @Environment(\.presentationMode) var presentationMode
   @EnvironmentObject var products: ProductStore
-  @Binding var product: Product
+  @Binding var product: TrackedProduct
 
   var body: some View {
     VStack(alignment: .leading) {
@@ -61,7 +61,7 @@ struct EditProductView: View {
     .frame(width: 300, height: 250, alignment: .topLeading)
   }
 }
-
+//
 // struct EditProductView_Previews: PreviewProvider {
 //    static var previews: some View {
 //      EditProductView(product: Product)

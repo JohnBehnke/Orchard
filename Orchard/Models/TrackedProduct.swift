@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product: Identifiable, Hashable, Codable {
+struct TrackedProduct: Identifiable, Hashable, Codable {
   internal init
   (
     name: String,

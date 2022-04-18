@@ -11,8 +11,8 @@ struct StoreListView: View {
   @Environment(\.openURL) var openURL
   @EnvironmentObject var storeAPI: StoreAPI
   @State private var selectedStore: Store?
-  var product: Product
-  init(product: Product) {
+  var product: TrackedProduct
+  init(product: TrackedProduct) {
     self.product = product
   }
   fileprivate func getAvailabilityColor(_ store: Store) -> Color {

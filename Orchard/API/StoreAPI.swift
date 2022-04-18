@@ -18,18 +18,18 @@ class StoreAPI: ObservableObject {
   }
   func getProductAvailability(for modelIdentifier: String, near postalCode: String) async -> [StoreInfo] {
     let escapedModelIdentifier = modelIdentifier.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-    let lookupUrl: String = "https://www.apple.com/shop/fulfillment-messages?parts.0=\(escapedModelIdentifier)&searchNearby=true&location=\(postalCode)"
+    let baseUrl: String = "https://www.apple.com/shop/fulfillment-messages"
+    let orderNumberQueryParam = "parts.0=\(escapedModelIdentifier)"
+    let searchQueryParams = "searchNearby=true&location=\(postalCode)"
+    let lookupUrl: String = "\(baseUrl)?\(orderNumberQueryParam)&\(searchQueryParams)"
     guard let url = URL(string: lookupUrl) else {
       fatalError()
     }
     do {
       let (data, _) = try await URLSession.shared.data(from: url)
       let result = try JSONDecoder().decode(FulfillmentMessagesAPIResponse.self, from: data)
-      //      return result.body.content.pickupMessage.stores
       return result.body.content.pickupMessage.stores
-    }
-    //      self.isEligableForPurchase =  self.stores.contains(where: {$0.partsAvailability.model.storeSelectionEnabled})
-    catch {
+    } catch {
       self.isSearching = false
       print(url)
       print("Request failed with error: \(error)")
@@ -43,16 +43,13 @@ class StoreAPI: ObservableObject {
       fatalError()
     }
     do {
-      // swiftlint:disable all
-      let (data, _) = try await URLSession.shared.data(from: url);
+      let (data, _) = try await URLSession.shared.data(from: url)
       return try JSONDecoder().decode(StoreDetailAPIResponse.self, from: data)
-      
     } catch {
       print("Request failed with error: \(error)")
       return nil
     }
   }
-  
   func performSearch(for modelIdentifer: String, near postalCode: String) async {
     self.isSearching = true
     self.isEligableForPurchase = false
@@ -70,10 +67,9 @@ class StoreAPI: ObservableObject {
         self.isSearching = false
         self.stores[index].productAvailability[modelIdentifer] = productAvailability
       } else {
-        guard let additionalStoreInformation: StoreDetailAPIResponse = await getAdditionalStoreInformation(for: store.storeName) else {
+        guard let additionalStoreInformation = await getAdditionalStoreInformation(for: store.storeName) else {
           return
         }
-        
         let storeInformation: Information = Information(
           name: store.storeName,
           image: store.retailStore.secureStoreImageUrl,
@@ -92,7 +88,6 @@ class StoreAPI: ObservableObject {
           longitude: store.storelongitude,
           latitude: store.storelongitude
         )
-        
         var days: [Day] = [Day]()
         for day in additionalStoreInformation.hours.days {
           days.append(
@@ -108,9 +103,15 @@ class StoreAPI: ObservableObject {
           currentStatus: additionalStoreInformation.hours.currentStatus,
           days: days
         )
-        newStores.append(Store(information: storeInformation, address: storeAddress, productAvailability: [modelIdentifer: productAvailability], schedule: storeSchedule))
-        
-        
+        let newStore = Store(
+          information: storeInformation,
+          address: storeAddress,
+          productAvailability: [modelIdentifer: productAvailability],
+          schedule: storeSchedule
+        )
+        newStores.append(
+          newStore
+        )
       }
       if newStores.count == productAvailabilityResponse.count {
         self.stores = newStores

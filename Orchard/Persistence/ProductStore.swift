@@ -8,14 +8,14 @@
 import Foundation
 @MainActor
 class ProductStore: ObservableObject {
-  @Published var products: [Product] = []
-  func updateProduct(product: Product) {
+  @Published var products: [TrackedProduct] = []
+  func updateProduct(product: TrackedProduct) {
     if let row =  products.firstIndex(where: {$0.id == product.id}) {
       products[row] = product
     }
   }
 
-  func addProduct(product: Product) {
+  func addProduct(product: TrackedProduct) {
     products.append(product)
     ProductStore.save(products: products) { result in
       if case .failure(let error) = result {
@@ -24,7 +24,7 @@ class ProductStore: ObservableObject {
     }
   }
 
-  func deleteProduct(product: Product) {
+  func deleteProduct(product: TrackedProduct) {
     if let row =  products.firstIndex(where: {$0.id == product.id}) {
       products.remove(at: row)
       ProductStore.save(products: products) { result in
@@ -43,7 +43,7 @@ class ProductStore: ObservableObject {
       .appendingPathComponent("products.data")
   }
 
-  static func load(completion: @escaping (Result<[Product], Error>) -> Void) {
+  static func load(completion: @escaping (Result<[TrackedProduct], Error>) -> Void) {
 
     do {
       let fileURL = try fileURL()
@@ -53,7 +53,7 @@ class ProductStore: ObservableObject {
         }
         return
       }
-      let products = try JSONDecoder().decode([Product].self, from: file.availableData)
+      let products = try JSONDecoder().decode([TrackedProduct].self, from: file.availableData)
       DispatchQueue.main.async {
         completion(.success(products))
       }
@@ -64,7 +64,7 @@ class ProductStore: ObservableObject {
     }
   }
 
-  static func save(products: [Product], completion: @escaping (Result<Int, Error>) -> Void) {
+  static func save(products: [TrackedProduct], completion: @escaping (Result<Int, Error>) -> Void) {
 
     do {
       let data = try JSONEncoder().encode(products)
