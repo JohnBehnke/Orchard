@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-extension Shape {
+extension Circle {
   public func dualToneFill(left: Color, right: Color) -> some View {
     HStack(spacing: 0) {
       Rectangle().fill(left)

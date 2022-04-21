@@ -16,7 +16,6 @@ struct MainView: View {
         .fontWeight(.light)
         .foregroundColor(.secondary)
     }
-
   }
 }
 
@@ -32,10 +31,10 @@ struct MainView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
       MainView()
-        .environmentObject(ProductStore())
+        .environmentObject(TrackedProductStore())
         .environmentObject(StoreAPI())
       MainView()
-        .environmentObject(ProductStore())
+        .environmentObject(TrackedProductStore())
         .environmentObject(StoreAPI())
         .preferredColorScheme(.dark)
     }

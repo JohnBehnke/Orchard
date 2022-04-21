@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SideBarView: View {
-  @EnvironmentObject var products: ProductStore
+  @EnvironmentObject var trackedProductStore: TrackedProductStore
+  @EnvironmentObject var productStore: ProductStore
   @State private var selectedProduct: TrackedProduct? = TrackedProduct()
   @State private var shouldShowAddProductView: Bool = false
   @State private var shouldShowEditProductView: Bool = false
@@ -19,9 +20,9 @@ struct SideBarView: View {
   var body: some View {
     List(selection: $selectedProduct, content: {
       Section("") {
-        ForEach(products.products, id: \.self) { product in
+        ForEach(trackedProductStore.trackedProducts, id: \.self) { product in
           HStack {
-            if products.products.firstIndex(of: product)! == 0 {
+            if trackedProductStore.trackedProducts.firstIndex(of: product)! == 0 {
               NavigationLink(destination: StoreListView(product: product), isActive: $isDefaultItemActive) {
                 Text(product.name)
               }
@@ -38,17 +39,30 @@ struct SideBarView: View {
       .collapsible(false)})
     .listStyle(SidebarListStyle())
     .onAppear {
+      TrackedProductStore.load { result in
+        switch result {
+        case .success(let loadedProducts):
+          trackedProductStore.trackedProducts = loadedProducts
+        case .failure(let error):
+          fatalError(error.localizedDescription)
+//          print("oh")
+        }
+      }
       ProductStore.load { result in
         switch result {
         case .success(let loadedProducts):
-          products.products = loadedProducts
+          productStore.products = loadedProducts
         case .failure(let error):
           fatalError(error.localizedDescription)
         }
-      }}
+      }
+    }
     .sheet(isPresented: self.$shouldShowEditProductView) {
-      ProductConfiguratorView()
-      EditProductView(product: $selectedProduct.toNonOptional()).environmentObject(products)
+      ProductConfiguratorView(
+        productSelection: productStore.findOptionFor(trackedProduct: selectedProduct!).0,
+        optionSelection: productStore.findOptionFor(trackedProduct: selectedProduct!).1
+      )
+//      EditProductView(product: $selectedProduct.toNonOptional()).environmentObject(trackedProductStore)
     }
     .contextMenu(ContextMenu(menuItems: {
       Button(action: {
@@ -60,7 +74,7 @@ struct SideBarView: View {
       Button(action: {
         print("Pressed delete in context menu")
         if let productToDelete = selectedProduct {
-          products.deleteProduct(product: productToDelete)
+          trackedProductStore.deleteProduct(product: productToDelete)
         }
       }, label: {
         Text("Delete")

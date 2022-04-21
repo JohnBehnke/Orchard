@@ -12,12 +12,12 @@ import Contacts
 
 struct DebugPreferencesView: View {
   @EnvironmentObject var storeAPI: StoreAPI
-  @EnvironmentObject var productStore: ProductStore
+  @EnvironmentObject var productStore: TrackedProductStore
   var body: some View {
     VStack {
       Button(action: {
         do {
-          let url = try ProductStore.fileURL()
+          let url = try TrackedProductStore.fileURL()
           if url.hasDirectoryPath {
             NSWorkspace.shared.selectFile(nil, inFileViewerRootedAtPath: url.path)
           } else {
@@ -40,8 +40,8 @@ struct DebugPreferencesView: View {
 
       Button(action: {
         Task {
-          for product in self.productStore.products {
-            await self.storeAPI.performSearch(for: product.modelNumber, near: product.searchPostalCode)
+          for product in self.productStore.trackedProducts {
+            await self.storeAPI.performSearch(for: product.identifier, near: "06877")
           }
         }
       }, label: {

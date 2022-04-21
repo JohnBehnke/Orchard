@@ -11,34 +11,26 @@ struct TrackedProduct: Identifiable, Hashable, Codable {
   internal init
   (
     name: String,
-    modelNumber: String,
-    purchaseURL: String,
-    searchPostalCode: String,
+    identifier: String,
     shouldSendNotification: Bool,
     timeLastChecked: Date
   ) {
     self.name = name
-    self.modelNumber = modelNumber
-    self.purchaseURL = purchaseURL
-    self.searchPostalCode = searchPostalCode
+    self.identifier = identifier
     self.shouldSendNotification = shouldSendNotification
     self.timeLastChecked = timeLastChecked
   }
 
   init() {
-    self.name = "name"
-    self.modelNumber = "modelNumber"
-    self.purchaseURL = "https://apple.com"
-    self.searchPostalCode = "searchPostalCode"
+    self.name = ""
+    self.identifier = ""
     self.shouldSendNotification = false
     self.timeLastChecked = Date()
   }
 
   var id: UUID = UUID()
   var name: String
-  var modelNumber: String
-  var purchaseURL: String
-  var searchPostalCode: String
+  var identifier: String
   var shouldSendNotification: Bool
   var timeLastChecked: Date
 

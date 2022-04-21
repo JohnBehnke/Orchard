@@ -6,58 +6,25 @@
 //
 import SwiftUI
 
-struct Test: Identifiable {
-  var id = UUID().uuidString
-  var name: String
-  init(name: String) {
-    self.name = name
-  }
-}
-
 struct ProductConfiguratorView: View {
-  @State var selection: Int?
+  @State var productSelection: Int? = 0
+  @State var optionSelection: Int = 0
   @Environment(\.presentationMode) var presentationMode
-  let tests: [Test] = [
-    Test(name: "Macbook Air"),
-    Test(name: "Macbook Pro 13\""),
-    Test(name: "Macbook Pro 14\""),
-    Test(name: "Macbook Pro 16\"")
-  ]
+  @EnvironmentObject var trackedProducts: TrackedProductStore
+  @EnvironmentObject var products: ProductStore
   var body: some View {
     NavigationView {
-      List(tests, id: \.id, selection: $selection) { item in
-        NavigationLink(tag: item.id.hashValue, selection: $selection, destination: {
-          ScrollView {
-            VStack(alignment: .leading) {
-              Text(item.name)
-                .font(.title)
-                .padding(.bottom)
-              ColorSection()
-                .padding()
-              CPUSelection()
-                .padding()
-              MemorySelection()
-                .padding()
-              DiskSelection()
-                .padding()
-            }
-            .padding()
-          }
-          HStack {
-            Spacer()
-            Button(action: {
-              self.presentationMode.wrappedValue.dismiss()
-            }, label: {Text("Cancel")}).keyboardShortcut(.cancelAction)
-            Button(action: {
-            }, label: {
-              Text("Add")
-            }).keyboardShortcut(.defaultAction)
-          }
-          .padding(10)
+      List(products.products.indices, id: \.self) { index in
+        NavigationLink(tag: index, selection: $productSelection, destination: {
+          OptionListView(
+            product: products.products[index],
+            optionSelection: optionSelection,
+            productSelection: productSelection ?? 0
+          )
         }, label: {
           HStack {
-            Image(systemName: "laptopcomputer")
-            Text(item.name)
+            Image(systemName: products.products[index].type)
+            Text(products.products[index].name)
           }
           .font(.title2)
           .padding()
@@ -65,11 +32,8 @@ struct ProductConfiguratorView: View {
       }
       .frame(minWidth: 250)
     }
-    .onAppear {
-      self.selection = tests[0].id.hashValue
-    }
     .padding([.leading, .bottom, .top])
-    .frame(width: 750, height: 500, alignment: .topLeading)
+    .frame(width: 800, height: 500, alignment: .topLeading)
     .listStyle(.inset(alternatesRowBackgrounds: true))
   }
 }
@@ -80,132 +44,104 @@ struct ProductSelectorView_Previews: PreviewProvider {
   }
 }
 
-struct ColorSection: View {
-  @State var colorSelection: Int = 0
-  var imacColors: [(Color, Color)] = [
-    (Color.imacBluePrimary, Color.imacBlueSecondary),
-    (Color.imacGreenPrimary, Color.imacGreenSecondary),
-    (Color.imacPinkPrimary, Color.imacPinkSecondary),
-    (Color.imacYellowPrimary, Color.imacYellowSecondary),
-    (Color.imacOrangePrimary, Color.imacOrangeSecondary),
-    (Color.imacPurplePrimary, Color.imacPurpleSecondary)
-  ]
+struct OptionSelectionView: View {
+  @State var option: Option
   var body: some View {
-    VStack(alignment: .leading) {
-      HStack {
-        Image(systemName: "paintpalette")
-        Text("Color")
-      }.font(.title2)
-      HStack {
+    HStack {
+      VStack(alignment: .leading) {
+        if option.primaryColorIdentifier != nil {
+          VStack(alignment: .leading) {
+            HStack {
+              Image(systemName: "paintbrush")
+              Text(option.colorDisplayName).font(.title3)
+              Circle().fill(Color(option.primaryColorIdentifier!))
+                .frame(width: 20, height: 20).overlay(Circle().stroke(Color.gray, lineWidth: 1))
+            }.font(.title2)
+            Spacer()
+          }.padding(2)
+        } else {
+          /*@START_MENU_TOKEN@*/EmptyView()/*@END_MENU_TOKEN@*/
+        }
         VStack(alignment: .leading) {
-          Text(colorSelection == 0
-               ? "Space Gray"
-               : colorSelection == 1
-               ? "Gold"
-               :"Silver").font(.subheadline).padding(.top, 2)
           HStack {
-            ForEach(Array(zip(imacColors, imacColors.indices)), id: \.0.0.hashValue) { color, index in
-              Circle().dualToneFill(left: color.0, right: color.1)
-                .selectable(
-                  selection: $colorSelection,
-                  tag: index,
-                  shape: AnyShape(Circle()),
-                  strokeTint: .accentColor,
-                  stokeWidth: 2
-                )
-            }
+            Image(systemName: "cpu")
+            Text(option.processor).font(.title3)
+          }.font(.title2)
+          Spacer()
+        }.padding(2)
+        VStack(alignment: .leading) {
+          HStack {
+            Image(systemName: "memorychip")
+            Text(option.memory).font(.title3)
+          }.font(.title2)
+          Spacer()
+        }.padding(2)
+        VStack(alignment: .leading) {
+          HStack(alignment: .center) {
+            Image(systemName: "internaldrive")
+            Text(option.storage).font(.title3)
+          }.font(.title2)
+          Spacer()
+        }.padding(2)
+      }
+      Spacer()
+    }
+    .frame(width: 400)
+    .padding().background(RoundedRectangle(cornerRadius: 5).foregroundColor(.secondary).opacity(0.1))
+  }
+}
+
+struct OptionListView: View {
+  @Environment(\.presentationMode) var presentationMode
+  @EnvironmentObject var trackedProducts: TrackedProductStore
+  @EnvironmentObject var products: ProductStore
+  @State var product: Product
+  @State var optionSelection: Int = 0
+  var productSelection: Int = 0
+  var body: some View {
+    ScrollViewReader { scrollViewProxy in
+      ScrollView {
+        VStack(alignment: .leading) {
+          Text(product.name)
+            .font(.title)
+            .padding(.bottom)
+          ForEach(product.options.indices, id: \.self) { index in
+            OptionSelectionView(option: product.options[index])
+              .selectable(
+                selection: $optionSelection,
+                tag: index,
+                shape: AnyShape(RoundedRectangle(cornerRadius: 5)),
+                strokeTint: .accentColor,
+                stokeWidth: 2
+              )
           }
         }
-      }
-    }
-  }
-}
-
-struct CPUSelection: View {
-  @State var cpuSelection: Int = 0
-  var cpuConfigurations = ["M1 8-Core CPU and 7-Core GPU", "M1 8-Core CPU and 8-Core GPU"]
-  var body: some View {
-    VStack(alignment: .leading) {
-      HStack {
-        Image(systemName: "cpu")
-        Text("System on a Chip (Processor)")
-      }.font(.title2)
-      LazyVGrid(columns: [
-        GridItem(.flexible()),
-        GridItem(.flexible())
-      ]) {
-        ForEach(Array(zip(cpuConfigurations, cpuConfigurations.indices)), id: \.1) { config, index in
-          Text(config)
-            .frame(width: 160)
-            .padding().background(RoundedRectangle(cornerRadius: 5).foregroundColor(.secondary).opacity(0.1))
-            .selectable(
-              selection: $cpuSelection,
-              tag: index,
-              shape: AnyShape(RoundedRectangle(cornerRadius: 5)),
-              strokeTint: .accentColor,
-              stokeWidth: 2
-            )
+        .padding()
+      }.onAppear(
+        perform: {
+          if optionSelection != 0 {
+            scrollViewProxy.scrollTo(optionSelection)
+          }
         }
-      }
+      )
     }
-  }
-}
-
-struct MemorySelection: View {
-  @State var memSelection: Int = 0
-  var ramConfigurations = ["8", "16", "32", "64", "128"]
-  var body: some View {
-    VStack(alignment: .leading) {
-      HStack {
-        Image(systemName: "memorychip")
-        Text("Memory")
-      }.font(.title2)
-      LazyVGrid(columns: [
-        GridItem(.flexible()),
-        GridItem(.flexible())
-      ]) {
-        ForEach(Array(zip(ramConfigurations, ramConfigurations.indices)), id: \.1) { config, index in
-          Text("\(config)GB unified memory")
-            .frame(width: 160)
-            .padding().background(RoundedRectangle(cornerRadius: 5).foregroundColor(.secondary).opacity(0.1))
-            .selectable(
-              selection: $memSelection,
-              tag: index,
-              shape: AnyShape(RoundedRectangle(cornerRadius: 5)),
-              strokeTint: .accentColor,
-              stokeWidth: 2
-            )
-        }
-      }
+    HStack {
+      Spacer()
+      Button(action: {
+        self.presentationMode.wrappedValue.dismiss()
+      }, label: {Text("Cancel")}).keyboardShortcut(.cancelAction)
+      Button(action: {
+        trackedProducts.addProduct(product: TrackedProduct(
+          name: products.products[productSelection].name,
+          identifier: products.products[productSelection].options[optionSelection].identifier,
+          shouldSendNotification: true,
+          timeLastChecked: Date()
+        ))
+        self.presentationMode.wrappedValue.dismiss()
+      }, label: {
+        Text("Add")
+      }).keyboardShortcut(.defaultAction)
     }
-  }
-}
-
-struct DiskSelection: View {
-  @State var driveSelection: Int = 0
-  var diskConfigurations = ["256GB", "512GB", "1TB", "2TB", "4TB", "8TB"]
-  var body: some View {
-    VStack(alignment: .leading) {
-      HStack {
-        Image(systemName: "internaldrive")
-        Text("Storage")
-      }.font(.title2)
-      LazyVGrid(columns: [
-        GridItem(.flexible(minimum: 40), spacing: 20),
-        GridItem(.flexible(minimum: 40), spacing: 20)
-      ]) {
-        ForEach(Array(zip(diskConfigurations, diskConfigurations.indices)), id: \.1) { config, index in
-          Text("\(config) SSD")
-            .frame(width: 160)
-            .padding().background(RoundedRectangle(cornerRadius: 5).foregroundColor(.secondary).opacity(0.1))
-            .selectable(
-              selection: $driveSelection,
-              tag: index,
-              shape: AnyShape(RoundedRectangle(cornerRadius: 5)),
-              strokeTint: .accentColor,
-              stokeWidth: 2)
-        }
-      }
-    }
+    .padding(10)
   }
 }

@@ -10,15 +10,16 @@ import SwiftUI
 struct StoreListView: View {
   @Environment(\.openURL) var openURL
   @EnvironmentObject var storeAPI: StoreAPI
+  @EnvironmentObject var productStore: ProductStore
   @State private var selectedStore: Store?
   var product: TrackedProduct
   init(product: TrackedProduct) {
     self.product = product
   }
   fileprivate func getAvailabilityColor(_ store: Store) -> Color {
-    return store.productAvailability[product.modelNumber]?.selectable ?? false
-    ? store.productAvailability[product.modelNumber]?.pickupQuote == "Available Today"
-      || store.productAvailability[product.modelNumber]?.pickupQuote == "Available Tomorrow"
+    return store.productAvailability[product.identifier]?.selectable ?? false
+    ? store.productAvailability[product.identifier]?.pickupQuote == "Available Today"
+      || store.productAvailability[product.identifier]?.pickupQuote == "Available Tomorrow"
     ? Color.green
     : Color.yellow
     : Color.red
@@ -36,7 +37,7 @@ struct StoreListView: View {
                 .foregroundColor(getAvailabilityColor(store))
               VStack(alignment: .leading) {
                 Text(store.information.name)
-                Text(store.productAvailability[product.modelNumber]?.pickupQuote ?? "")
+                Text(store.productAvailability[product.identifier]?.pickupQuote ?? "")
                   .font(.subheadline)
               }
             }.padding()
@@ -48,7 +49,7 @@ struct StoreListView: View {
     }
     .task {
       storeAPI.isSearching = true
-      await storeAPI.performSearch(for: product.modelNumber, near: product.searchPostalCode)
+      await storeAPI.performSearch(for: product.identifier, near: "06877")
     }
     .listStyle(.inset(alternatesRowBackgrounds: true))
     .navigationTitle("")
@@ -68,13 +69,13 @@ struct StoreListView: View {
           Text("Last checked \(itemFormatter.string(from: product.timeLastChecked))").font(Font.caption2).italic()
         }
       }
-      ToolbarItem {
-        Button(action: {
-          let url: URL = URL(string: product.purchaseURL)!
-          openURL(url)
-        }, label: {Image(systemName: storeAPI.isEligableForPurchase ? "bag.badge.plus" : "bag")})
-        .disabled(!storeAPI.isEligableForPurchase)
-      }
+//      ToolbarItem {
+//        Button(action: {
+//          let url: URL = URL(string: product.purchaseURL)!
+//          openURL(url)
+//        }, label: {Image(systemName: storeAPI.isEligableForPurchase ? "bag.badge.plus" : "bag")})
+//        .disabled(!storeAPI.isEligableForPurchase)
+//      }
     }
   }
 }
