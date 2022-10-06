@@ -10,7 +10,7 @@ struct ProductConfiguratorView: View {
   @State var productSelection: Int? = 0
   @State var optionSelection: Int = 0
   @Environment(\.presentationMode) var presentationMode
-  @EnvironmentObject var trackedProducts: TrackedProductStore
+  @EnvironmentObject var userDataStore: UserDataStore
   @EnvironmentObject var products: ProductStore
   var body: some View {
     NavigationView {
@@ -25,6 +25,10 @@ struct ProductConfiguratorView: View {
           HStack {
             Image(systemName: products.products[index].type)
             Text(products.products[index].name)
+          }
+          .onTapGesture {
+            productSelection = index
+            optionSelection = 0
           }
           .font(.title2)
           .padding()
@@ -53,36 +57,58 @@ struct OptionSelectionView: View {
           VStack(alignment: .leading) {
             HStack {
               Image(systemName: "paintbrush")
-              Text(option.colorDisplayName).font(.title3)
+              Text(option.colorDisplayName!).font(.title3)
               Circle().fill(Color(option.primaryColorIdentifier!))
                 .frame(width: 20, height: 20).overlay(Circle().stroke(Color.gray, lineWidth: 1))
             }.font(.title2)
             Spacer()
           }.padding(2)
-        } else {
-          /*@START_MENU_TOKEN@*/EmptyView()/*@END_MENU_TOKEN@*/
         }
-        VStack(alignment: .leading) {
-          HStack {
-            Image(systemName: "cpu")
-            Text(option.processor).font(.title3)
-          }.font(.title2)
-          Spacer()
-        }.padding(2)
-        VStack(alignment: .leading) {
-          HStack {
-            Image(systemName: "memorychip")
-            Text(option.memory).font(.title3)
-          }.font(.title2)
-          Spacer()
-        }.padding(2)
-        VStack(alignment: .leading) {
-          HStack(alignment: .center) {
-            Image(systemName: "internaldrive")
-            Text(option.storage).font(.title3)
-          }.font(.title2)
-          Spacer()
-        }.padding(2)
+        if option.processor != nil {
+          VStack(alignment: .leading) {
+            HStack {
+              Image(systemName: "cpu")
+              Text(option.processor!).font(.title3)
+            }.font(.title2)
+            Spacer()
+          }.padding(2)
+        }
+        if option.memory != nil {
+          VStack(alignment: .leading) {
+            HStack {
+              Image(systemName: "memorychip")
+              Text(option.memory!).font(.title3)
+            }.font(.title2)
+            Spacer()
+          }.padding(2)
+        }
+        if option.storage != nil {
+          VStack(alignment: .leading) {
+            HStack(alignment: .center) {
+              Image(systemName: "internaldrive")
+              Text(option.storage!).font(.title3)
+            }.font(.title2)
+            Spacer()
+          }.padding(2)
+        }
+        if option.glass != nil {
+          VStack(alignment: .leading) {
+            HStack(alignment: .center) {
+              Image(systemName: "sparkles.tv")
+              Text(option.glass!).font(.title3)
+            }.font(.title2)
+            Spacer()
+          }.padding(2)
+        }
+        if option.stand != nil {
+          VStack(alignment: .leading) {
+            HStack(alignment: .center) {
+              Image(systemName: "display.and.arrow.down")
+              Text(option.stand!).font(.title3)
+            }.font(.title2)
+            Spacer()
+          }.padding(2)
+        }
       }
       Spacer()
     }
@@ -93,7 +119,7 @@ struct OptionSelectionView: View {
 
 struct OptionListView: View {
   @Environment(\.presentationMode) var presentationMode
-  @EnvironmentObject var trackedProducts: TrackedProductStore
+  @EnvironmentObject var userDataStore: UserDataStore
   @EnvironmentObject var products: ProductStore
   @State var product: Product
   @State var optionSelection: Int = 0
@@ -131,11 +157,9 @@ struct OptionListView: View {
         self.presentationMode.wrappedValue.dismiss()
       }, label: {Text("Cancel")}).keyboardShortcut(.cancelAction)
       Button(action: {
-        trackedProducts.addProduct(product: TrackedProduct(
+        userDataStore.addProduct(product: TrackedProduct(
           name: products.products[productSelection].name,
-          identifier: products.products[productSelection].options[optionSelection].identifier,
-          shouldSendNotification: true,
-          timeLastChecked: Date()
+          identifier: products.products[productSelection].options[optionSelection].identifier
         ))
         self.presentationMode.wrappedValue.dismiss()
       }, label: {

@@ -78,7 +78,7 @@ struct ModelIdentifier: Decodable {
 
 // MARK: - PartsAvailability
 struct PartsAvailability: Decodable {
-  let storePickEligible, storeSearchEnabled, storeSelectionEnabled: Bool
+  let storePickEligible, storeSearchEnabled, storeSelectionEnabled: Bool?
   let pickupSearchQuote: String
 }
 

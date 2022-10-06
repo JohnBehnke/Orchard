@@ -1,6 +1,76 @@
 [
   {
-    "name": "Macbook Air",
+    "name": "Macbook Air (M1)",
+    "type": "laptopcomputer",
+    "options": [
+      {
+        "colorDisplayName": "Space Gray",
+        "primaryColorIdentifier": "MacbookAirSpaceGray",
+        "processor": "M1 8-Core CPU and 7-Core GPU",
+        "storage": "256GB SSD",
+        "memory": "8GB unified memory",
+        "identifier": "MGN63LL/A"
+      },
+      {
+        "colorDisplayName": "Gold",
+        "primaryColorIdentifier": "MacbookAirGold",
+        "processor": "M1 8-Core CPU and 7-Core GPU",
+        "storage": "256GB SSD",
+        "memory": "8GB unified memory",
+        "identifier": "MGND3LL/A"
+      },
+      {
+        "colorDisplayName": "Silver",
+        "primaryColorIdentifier": "MacbookAirSilver",
+        "processor": "M1 8-Core CPU and 7-Core GPU",
+        "storage": "256GB SSD",
+        "memory": "8GB unified memory",
+        "identifier": "MGN93LL/A"
+      },
+      {
+        "colorDisplayName": "Space Gray",
+        "primaryColorIdentifier": "MacbookAirSpaceGray",
+        "processor": "M1 8-Core CPU and 8-Core GPU",
+        "storage": "512GB SSD",
+        "memory": "8GB unified memory",
+        "identifier": "MGN73LL/A"
+      },
+      {
+        "colorDisplayName": "Gold",
+        "primaryColorIdentifier": "MacbookAirGold",
+        "processor": "M1 8-Core CPU and 8-Core GPU",
+        "storage": "512GB SSD",
+        "memory": "8GB unified memory",
+        "identifier": "MGNE3LL/A"
+      },
+      {
+        "colorDisplayName": "Silver",
+        "primaryColorIdentifier": "MacbookAirSilver",
+        "processor": "M1 8-Core CPU and 8-Core GPU",
+        "storage": "512GB SSD",
+        "memory": "8GB unified memory",
+        "identifier": "MGNA3LL/A"
+      },
+      {
+        "colorDisplayName": "Space Gray",
+        "primaryColorIdentifier": "MacbookAirSpaceGray",
+        "processor": "M1 8-Core CPU and 8-Core GPU",
+        "storage": "1TB SSD",
+        "memory": "16GB unified memory",
+        "identifier": "MGQN3LL/A"
+      },
+      {
+        "colorDisplayName": "Gold",
+        "primaryColorIdentifier": "MacbookAirGold",
+        "processor": "M1 8-Core CPU and 8-Core GPU",
+        "storage": "1TB SSD",
+        "memory": "16GB unified memory",
+        "identifier": "MGQP3LL/A"
+      }
+    ]
+  },
+  {
+    "name": "Macbook Air (M2)",
     "type": "laptopcomputer",
     "options": [
       {
@@ -238,5 +308,41 @@
         "identifier": "MMQW3LL/A"
       }
     ]
-  }
+  },
+  {
+    "name": "Studio Display",
+    "type": "display",
+    "options": [
+      {
+        "glass": "Standard glass",
+        "stand": "Tilt-adjustable stand",
+        "identifier": "MK0U3LL/A"
+      },
+      {
+        "glass": "Standard glass",
+        "stand": "Tilt- and height-adjustable stand",
+        "identifier": "MK0Q3LL/A"
+      },
+      {
+        "glass": "Standard glass",
+        "stand": "VESA mount adapter",
+        "identifier": "MMYQ3LL/A"
+      },
+      {
+        "glass": "Nano-texture glass",
+        "stand": "Tilt-adjustable stand",
+        "identifier": "MMYW3LL/A"
+      },
+      {
+        "glass": "Nano-texture glass",
+        "stand": "Tilt- and height-adjustable stand",
+        "identifier": "MMYV3LL/A"
+      },
+      {
+        "glass": "Nano-texture glass",
+        "stand": "VESA mount adapter",
+        "identifier": "MMYX3LL/A"
+      }
+    ]
+  },
 ]

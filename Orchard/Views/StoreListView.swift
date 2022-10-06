@@ -12,6 +12,8 @@ struct StoreListView: View {
   @EnvironmentObject var storeAPI: StoreAPI
   @EnvironmentObject var productStore: ProductStore
   @State private var selectedStore: Store?
+  @State private var lastSearchTime: Date?
+  @State var timer = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
   var product: TrackedProduct
   init(product: TrackedProduct) {
     self.product = product
@@ -47,9 +49,15 @@ struct StoreListView: View {
         ProgressView()
       }
     }
-    .task {
-      storeAPI.isSearching = true
-      await storeAPI.performSearch(for: product.identifier, near: "06877")
+//    .task {
+//
+//    }
+    .onReceive(timer) { time in
+      Task {
+        storeAPI.isSearching = true
+        await storeAPI.performSearch(for: product.identifier, near: "06877")
+        self.lastSearchTime = time
+      }
     }
     .listStyle(.inset(alternatesRowBackgrounds: true))
     .navigationTitle("")
@@ -64,10 +72,22 @@ struct StoreListView: View {
         }
       }
       ToolbarItem(placement: ToolbarItemPlacement.navigation) {
-        VStack(alignment: .leading) {
-          Text(product.name).font(.title3).bold()
-          Text("Last checked \(itemFormatter.string(from: product.timeLastChecked))").font(Font.caption2).italic()
+        HStack {
+          VStack(alignment: .leading) {
+            Text(product.name).font(.title3).bold()
+            Text("Last checked \(itemFormatter.string(from: self.lastSearchTime ?? Date()))").font(Font.caption2).italic()
+           
+          }
+          Button(action: {
+            self.timer.upstream.connect().cancel()
+            
+          }, label: {Label("", systemImage: "stop.circle")})
+          Button(action: {
+            self.timer = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
+            
+          }, label: {Label("", systemImage: "play.circle")})
         }
+       
       }
 //      ToolbarItem {
 //        Button(action: {

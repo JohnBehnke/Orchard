@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SideBarView: View {
-  @EnvironmentObject var trackedProductStore: TrackedProductStore
+  @EnvironmentObject var userDataStore: UserDataStore
   @EnvironmentObject var productStore: ProductStore
   @State private var selectedProduct: TrackedProduct? = TrackedProduct()
   @State private var shouldShowAddProductView: Bool = false
@@ -16,13 +16,12 @@ struct SideBarView: View {
   @State private var isHover = false
   @State private var hoveringIndex = 0
   @State private var isDefaultItemActive = true
-
   var body: some View {
     List(selection: $selectedProduct, content: {
       Section("") {
-        ForEach(trackedProductStore.trackedProducts, id: \.self) { product in
+        ForEach(userDataStore.userData.trackedProducts, id: \.self) { product in
           HStack {
-            if trackedProductStore.trackedProducts.firstIndex(of: product)! == 0 {
+            if userDataStore.userData.trackedProducts.firstIndex(of: product)! == 0 {
               NavigationLink(destination: StoreListView(product: product), isActive: $isDefaultItemActive) {
                 Text(product.name)
               }
@@ -39,13 +38,12 @@ struct SideBarView: View {
       .collapsible(false)})
     .listStyle(SidebarListStyle())
     .onAppear {
-      TrackedProductStore.load { result in
+      UserDataStore.load { result in
         switch result {
-        case .success(let loadedProducts):
-          trackedProductStore.trackedProducts = loadedProducts
+        case .success(let userData):
+          userDataStore.userData = userData
         case .failure(let error):
-          fatalError(error.localizedDescription)
-//          print("oh")
+          userDataStore.userData = UserData()
         }
       }
       ProductStore.load { result in
@@ -74,7 +72,7 @@ struct SideBarView: View {
       Button(action: {
         print("Pressed delete in context menu")
         if let productToDelete = selectedProduct {
-          trackedProductStore.deleteProduct(product: productToDelete)
+          userDataStore.deleteProduct(product: productToDelete)
         }
       }, label: {
         Text("Delete")

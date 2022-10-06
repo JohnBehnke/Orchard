@@ -57,9 +57,9 @@ class StoreAPI: ObservableObject {
     let productAvailabilityResponse = await self.getProductAvailability(for: modelIdentifer, near: postalCode)
     for store in productAvailabilityResponse {
       let productAvailability: ProductAvailability = ProductAvailability(
-        pickable: store.partsAvailability.model.storePickEligible,
-        searchable: store.partsAvailability.model.storeSearchEnabled,
-        selectable: store.partsAvailability.model.storeSelectionEnabled,
+        pickable: store.partsAvailability.model.storePickEligible ?? false,
+        searchable: store.partsAvailability.model.storeSearchEnabled ?? false,
+        selectable: store.partsAvailability.model.storeSelectionEnabled ?? false,
         pickupSearchQuote: store.partsAvailability.model.pickupSearchQuote
       )
       if productAvailability.selectable { self.isEligableForPurchase = true }

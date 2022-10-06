@@ -15,11 +15,13 @@ struct Product: Codable {
 }
 
 struct Option: Codable, Hashable {
-  let colorDisplayName: String
+  let colorDisplayName: String?
   let primaryColorIdentifier: String?
   let secondaryColorIdentidier: String?
-  let processor: String
-  let memory: String
-  let storage: String
+  let processor: String?
+  let memory: String?
+  let storage: String?
+  let glass: String?
+  let stand: String?
   let identifier: String
 }

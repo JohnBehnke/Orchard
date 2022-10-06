@@ -7,50 +7,58 @@
 
 import Foundation
 @MainActor
-class TrackedProductStore: ObservableObject {
-  @Published var trackedProducts: [TrackedProduct] = []
+class UserDataStore: ObservableObject {
+  @Published var userData: UserData = UserData()
   func updateProduct(product: TrackedProduct) {
-    if let row =  trackedProducts.firstIndex(where: {$0.id == product.id}) {
-      trackedProducts[row] = product
+    if let row =  userData.trackedProducts.firstIndex(where: {$0.id == product.id}) {
+      userData.trackedProducts[row] = product
     }
   }
   func addProduct(product: TrackedProduct) {
-    trackedProducts.append(product)
-    TrackedProductStore.save(products: trackedProducts) { result in
+    userData.trackedProducts.append(product)
+    UserDataStore.save(userData: userData) { result in
       if case .failure(let error) = result {
         fatalError(error.localizedDescription)
       }
     }
   }
   func deleteProduct(product: TrackedProduct) {
-    if let row =  trackedProducts.firstIndex(where: {$0.id == product.id}) {
-      trackedProducts.remove(at: row)
-      TrackedProductStore.save(products: trackedProducts) { result in
+    if let row =  userData.trackedProducts.firstIndex(where: {$0.id == product.id}) {
+      userData.trackedProducts.remove(at: row)
+      UserDataStore.save(userData: userData) { result in
         if case .failure(let error) = result {
           fatalError(error.localizedDescription)
         }
       }
     }
   }
+  func updateTimeSearched(time: Date) {
+    userData.timeLastChecked = time
+      UserDataStore.save(userData: userData) { result in
+        if case .failure(let error) = result {
+          fatalError(error.localizedDescription)
+        }
+      }
+  }
   static func fileURL() throws -> URL {
     try FileManager.default.url(for: .documentDirectory,
                                 in: .userDomainMask,
                                 appropriateFor: nil,
                                 create: false)
-    .appendingPathComponent("TrackedProducts.data")
+    .appendingPathComponent("userdata.json")
   }
-  static func load(completion: @escaping (Result<[TrackedProduct], Error>) -> Void) {
+  static func load(completion: @escaping (Result<UserData, Error>) -> Void) {
     do {
       let fileURL = try fileURL()
       guard let file = try? FileHandle(forReadingFrom: fileURL) else {
         DispatchQueue.main.async {
-          completion(.success([]))
+          completion(.success(UserData()))
         }
         return
       }
-      let products = try JSONDecoder().decode([TrackedProduct].self, from: file.availableData)
+      let userData = try JSONDecoder().decode(UserData.self, from: file.availableData)
       DispatchQueue.main.async {
-        completion(.success(products))
+        completion(.success(userData))
       }
     } catch {
       DispatchQueue.main.async {
@@ -58,13 +66,13 @@ class TrackedProductStore: ObservableObject {
       }
     }
   }
-  static func save(products: [TrackedProduct], completion: @escaping (Result<Int, Error>) -> Void) {
+  static func save(userData: UserData, completion: @escaping (Result<Int, Error>) -> Void) {
     do {
-      let data = try JSONEncoder().encode(products)
+      let data = try JSONEncoder().encode(userData)
       let outfile = try fileURL()
       try data.write(to: outfile)
       DispatchQueue.main.async {
-        completion(.success(products.count))
+        completion(.success(userData.trackedProducts.count))
       }
     } catch {
       DispatchQueue.main.async {

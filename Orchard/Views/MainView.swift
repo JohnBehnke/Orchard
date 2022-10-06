@@ -31,10 +31,10 @@ struct MainView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
       MainView()
-        .environmentObject(TrackedProductStore())
+        .environmentObject(UserDataStore())
         .environmentObject(StoreAPI())
       MainView()
-        .environmentObject(TrackedProductStore())
+        .environmentObject(UserDataStore())
         .environmentObject(StoreAPI())
         .preferredColorScheme(.dark)
     }
