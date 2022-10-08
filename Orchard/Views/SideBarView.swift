@@ -10,12 +10,14 @@ import SwiftUI
 struct SideBarView: View {
   @EnvironmentObject var userDataStore: UserDataStore
   @EnvironmentObject var productStore: ProductStore
+  @EnvironmentObject var storeAPI: StoreAPI
   @State private var selectedProduct: TrackedProduct? = TrackedProduct()
   @State private var shouldShowAddProductView: Bool = false
   @State private var shouldShowEditProductView: Bool = false
   @State private var isHover = false
   @State private var hoveringIndex = 0
   @State private var isDefaultItemActive = true
+  @State var timer = Timer.publish(every: 60, on: .main, in: .common)
   var body: some View {
     List(selection: $selectedProduct, content: {
       Section("") {
@@ -42,7 +44,15 @@ struct SideBarView: View {
         switch result {
         case .success(let userData):
           userDataStore.userData = userData
-        case .failure(let error):
+          Task {
+            storeAPI.isSearching = true
+            await storeAPI.performSearch(
+              for: userDataStore.userData.trackedProducts.map { $0.identifier },
+              near: "06877"
+            )
+            _ = self.timer.connect()
+          }
+        case .failure:
           userDataStore.userData = UserData()
         }
       }
@@ -53,6 +63,13 @@ struct SideBarView: View {
         case .failure(let error):
           fatalError(error.localizedDescription)
         }
+      }
+    }
+    .onReceive(timer) { _ in
+      Task {
+        print("Searching!")
+        storeAPI.isSearching = true
+        await storeAPI.performSearch(for: userDataStore.userData.trackedProducts.map { $0.identifier }, near: "06877")
       }
     }
     .sheet(isPresented: self.$shouldShowEditProductView) {

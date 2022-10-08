@@ -9,17 +9,22 @@ import Foundation
 
 @MainActor
 class StoreAPI: ObservableObject {
-  @Published var stores = [Store]()
+  @Published var stores: [Store] = []
   @Published var isSearching: Bool = true
   @Published var isEligableForPurchase: Bool = false
+  @Published var timeLastSearched: Date = Date()
   init() {
     stores =  []
     isSearching = true
   }
-  func getProductAvailability(for modelIdentifier: String, near postalCode: String) async -> [StoreInfo] {
-    let escapedModelIdentifier = modelIdentifier.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+  func getProductAvailability(for modelIdentifiers: [String], near postalCode: String) async -> [StoreInfo] {
+    var escapedModelIdentifiers: [String] = []
+    for (index, modelIdentifier) in modelIdentifiers.enumerated() {
+      let escapedModelIdentifier = modelIdentifier.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+      escapedModelIdentifiers.append("parts.\(index)=\(escapedModelIdentifier)")
+    }
+    let orderNumberQueryParam: String = escapedModelIdentifiers.joined(separator: "&")
     let baseUrl: String = "https://www.apple.com/shop/fulfillment-messages"
-    let orderNumberQueryParam = "parts.0=\(escapedModelIdentifier)"
     let searchQueryParams = "searchNearby=true&location=\(postalCode)"
     let lookupUrl: String = "\(baseUrl)?\(orderNumberQueryParam)&\(searchQueryParams)"
     guard let url = URL(string: lookupUrl) else {
@@ -50,73 +55,78 @@ class StoreAPI: ObservableObject {
       return nil
     }
   }
-  func performSearch(for modelIdentifer: String, near postalCode: String) async {
+  func performSearch(for modelIdentifers: [String], near postalCode: String) async {
     self.isSearching = true
     self.isEligableForPurchase = false
     var newStores: [Store] = [Store]()
-    let productAvailabilityResponse = await self.getProductAvailability(for: modelIdentifer, near: postalCode)
+    let productAvailabilityResponse = await self.getProductAvailability(for: modelIdentifers, near: postalCode)
     for store in productAvailabilityResponse {
-      let productAvailability: ProductAvailability = ProductAvailability(
-        pickable: store.partsAvailability.model.storePickEligible ?? false,
-        searchable: store.partsAvailability.model.storeSearchEnabled ?? false,
-        selectable: store.partsAvailability.model.storeSelectionEnabled ?? false,
-        pickupSearchQuote: store.partsAvailability.model.pickupSearchQuote
-      )
-      if productAvailability.selectable { self.isEligableForPurchase = true }
-      if let index =  self.stores.firstIndex(where: {$0.information.number == store.storeNumber}) {
-        self.isSearching = false
-        self.stores[index].productAvailability[modelIdentifer] = productAvailability
-      } else {
-        guard let additionalStoreInformation = await getAdditionalStoreInformation(for: store.storeName) else {
-          return
-        }
-        let storeInformation: Information = Information(
-          name: store.storeName,
-          image: store.retailStore.secureStoreImageUrl,
-          phoneNumber: additionalStoreInformation.telephone,
-          number: store.storeNumber,
-          message: additionalStoreInformation.message,
-          messageTitle: additionalStoreInformation.messageTitle
+      var newStore = await build(store)
+      for product in store.partsAvailability.values {
+        let modelIdentifer = product.partNumber
+        let productAvailability: ProductAvailability = ProductAvailability(
+          pickable: product.storePickEligible ?? false,
+          searchable: product.storeSearchEnabled ?? false,
+          selectable: product.storeSelectionEnabled ?? false,
+          pickupSearchQuote: product.pickupSearchQuote
         )
-        let storeAddress: Address = Address(
-          lineOne: store.address.address,
-          lineTwo: store.address.address2,
-          city: store.city,
-          stateCode: store.state,
-          country: store.country,
-          postal: store.address.postalCode,
-          longitude: store.storelongitude,
-          latitude: store.storelongitude
-        )
-        var days: [Day] = [Day]()
-        for day in additionalStoreInformation.hours.days {
-          days.append(
-            Day(
-              shortName: day.shortName,
-              formattedDate: day.formattedDate,
-              formattedTime: day.formattedTime,
-              isSpecialHours: day.specialHours
-            )
-          )
-        }
-        let storeSchedule: Schedule =  Schedule(
-          currentStatus: additionalStoreInformation.hours.currentStatus,
-          days: days
-        )
-        let newStore = Store(
-          information: storeInformation,
-          address: storeAddress,
-          productAvailability: [modelIdentifer: productAvailability],
-          schedule: storeSchedule
-        )
-        newStores.append(
-          newStore
-        )
+        newStore.productAvailability[modelIdentifer] = productAvailability
       }
+      newStores.append(
+        newStore
+      )
       if newStores.count == productAvailabilityResponse.count {
-        self.stores = newStores
+        if !self.stores.elementsEqual(newStores) {
+          print("reload")
+          self.stores = newStores
+        }
         self.isSearching = false
+        self.timeLastSearched = Date()
       }
     }
+  }
+  private func build(_ store: StoreInfo) async -> Store {
+    guard let additionalStoreInformation = await getAdditionalStoreInformation(for: store.storeName) else {
+      fatalError()
+    }
+    let storeInformation: Information = Information(
+      name: store.storeName,
+      image: store.retailStore.secureStoreImageUrl,
+      phoneNumber: additionalStoreInformation.telephone,
+      number: store.storeNumber,
+      message: additionalStoreInformation.message,
+      messageTitle: additionalStoreInformation.messageTitle
+    )
+    let storeAddress: Address = Address(
+      lineOne: store.address.address,
+      lineTwo: store.address.address2,
+      city: store.city,
+      stateCode: store.state,
+      country: store.country,
+      postal: store.address.postalCode,
+      longitude: store.storelongitude,
+      latitude: store.storelongitude
+    )
+    var days: [Day] = [Day]()
+    for day in additionalStoreInformation.hours.days {
+      days.append(
+        Day(
+          shortName: day.shortName,
+          formattedDate: day.formattedDate,
+          formattedTime: day.formattedTime,
+          isSpecialHours: day.specialHours
+        )
+      )
+    }
+    let storeSchedule: Schedule =  Schedule(
+      currentStatus: additionalStoreInformation.hours.currentStatus,
+      days: days
+    )
+    return Store(
+      information: storeInformation,
+      address: storeAddress,
+      productAvailability: [:],
+      schedule: storeSchedule
+    )
   }
 }

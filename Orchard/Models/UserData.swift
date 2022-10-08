@@ -16,13 +16,10 @@ struct UserData: Codable {
     self.trackedProducts = [TrackedProduct]()
     self.timeLastChecked = timeLastChecked
   }
-  
   init() {
     self.trackedProducts = [TrackedProduct]()
     self.timeLastChecked = Date()
   }
   var timeLastChecked: Date
   var trackedProducts: [TrackedProduct]
-
-  
 }

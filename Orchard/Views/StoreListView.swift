@@ -12,24 +12,17 @@ struct StoreListView: View {
   @EnvironmentObject var storeAPI: StoreAPI
   @EnvironmentObject var productStore: ProductStore
   @State private var selectedStore: Store?
-  @State private var lastSearchTime: Date?
-  @State var timer = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
+  @State var lastSearchTime: Date?
+
   var product: TrackedProduct
   init(product: TrackedProduct) {
+    print("inti")
     self.product = product
-  }
-  fileprivate func getAvailabilityColor(_ store: Store) -> Color {
-    return store.productAvailability[product.identifier]?.selectable ?? false
-    ? store.productAvailability[product.identifier]?.pickupQuote == "Available Today"
-      || store.productAvailability[product.identifier]?.pickupQuote == "Available Tomorrow"
-    ? Color.green
-    : Color.yellow
-    : Color.red
   }
   var body: some View {
     Group {
-      switch self.storeAPI.isSearching {
-      case false:
+      switch self.storeAPI.stores.count > 0 {
+      case true:
         List(storeAPI.stores, id: \.self) { store in
           NavigationLink {
             StoreDetailView(store: store)
@@ -49,16 +42,6 @@ struct StoreListView: View {
         ProgressView()
       }
     }
-//    .task {
-//
-//    }
-    .onReceive(timer) { time in
-      Task {
-        storeAPI.isSearching = true
-        await storeAPI.performSearch(for: product.identifier, near: "06877")
-        self.lastSearchTime = time
-      }
-    }
     .listStyle(.inset(alternatesRowBackgrounds: true))
     .navigationTitle("")
     .toolbar {
@@ -75,28 +58,22 @@ struct StoreListView: View {
         HStack {
           VStack(alignment: .leading) {
             Text(product.name).font(.title3).bold()
-            Text("Last checked \(itemFormatter.string(from: self.lastSearchTime ?? Date()))").font(Font.caption2).italic()
-           
+            Text("Last checked \(itemFormatter.string(from: self.storeAPI.timeLastSearched ))")
+              .font(Font.caption2)
+              .italic()
           }
-          Button(action: {
-            self.timer.upstream.connect().cancel()
-            
-          }, label: {Label("", systemImage: "stop.circle")})
-          Button(action: {
-            self.timer = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
-            
-          }, label: {Label("", systemImage: "play.circle")})
         }
-       
       }
-//      ToolbarItem {
-//        Button(action: {
-//          let url: URL = URL(string: product.purchaseURL)!
-//          openURL(url)
-//        }, label: {Image(systemName: storeAPI.isEligableForPurchase ? "bag.badge.plus" : "bag")})
-//        .disabled(!storeAPI.isEligableForPurchase)
-//      }
     }
+  }
+
+  fileprivate func getAvailabilityColor(_ store: Store) -> Color {
+    return store.productAvailability[product.identifier]?.pickable ?? true
+    ? store.productAvailability[product.identifier]?.pickupQuote == "Available Today"
+      || store.productAvailability[product.identifier]?.pickupQuote == "Available Tomorrow"
+    ? Color.green
+    : Color.yellow
+    : Color.red
   }
 }
 

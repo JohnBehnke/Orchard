@@ -27,20 +27,17 @@ class ProductStore: ObservableObject {
   func getProductDetails(_ trackedProduct: TrackedProduct) -> Product? {
 
     for product in products {
-      for option in product.options {
-        if option.identifier == trackedProduct.identifier {
-          return product
-        }
+      for option in product.options where option.identifier == trackedProduct.identifier {
+        return product
       }
     }
     return nil
   }
   func findOptionFor(trackedProduct: TrackedProduct) -> (Int, Int) {
     for (productIndex, product) in products.enumerated() {
-      for (optionIndex, option) in product.options.enumerated() {
-        if option.identifier == trackedProduct.identifier {
-          return (productIndex, optionIndex)
-        }
+      for (optionIndex, option) in product.options.enumerated() where option.identifier == trackedProduct.identifier {
+        return (productIndex, optionIndex)
+
       }
     }
     return (0, 0)

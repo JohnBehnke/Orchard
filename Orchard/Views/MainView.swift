@@ -22,7 +22,7 @@ struct MainView: View {
  let itemFormatter: DateFormatter = {
   let formatter = DateFormatter()
    formatter.dateStyle = .short
-   formatter.timeStyle = .short
+   formatter.timeStyle = .long
    formatter.doesRelativeDateFormatting = true
   return formatter
 }()

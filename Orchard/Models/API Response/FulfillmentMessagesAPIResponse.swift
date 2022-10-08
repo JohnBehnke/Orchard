@@ -35,7 +35,7 @@ struct StoreInfo: Decodable {
 
   let storeName: String
   let city, storeNumber, reservationUrl, state, country: String
-  var partsAvailability: ModelIdentifier
+  var partsAvailability: [String: PartsAvailability]
   let phoneNumber: String
   let address: StoreAddress
   let storedistance, storelatitude, storelongitude: Double
@@ -53,33 +53,12 @@ struct StoreAddress: Codable {
 // MARK: - PartsAvailability
 struct ModelIdentifier: Decodable {
   var model: PartsAvailability
-
-  private struct DynamicCodingKeys: CodingKey {
-    var stringValue: String
-    init?(stringValue: String) {
-      self.stringValue = stringValue
-    }
-
-    var intValue: Int?
-    init?(intValue: Int) {
-      return nil
-    }
-  }
-  init(from decoder: Decoder) throws {
-
-    let container = try decoder.container(keyedBy: DynamicCodingKeys.self)
-    model = try container.decode(
-      PartsAvailability.self,
-      forKey: DynamicCodingKeys(stringValue: container.allKeys.first!.stringValue)!
-    )
-
-  }
 }
 
 // MARK: - PartsAvailability
 struct PartsAvailability: Decodable {
   let storePickEligible, storeSearchEnabled, storeSelectionEnabled: Bool?
-  let pickupSearchQuote: String
+  let partNumber, pickupSearchQuote: String
 }
 
 // MARK: - RetailStore

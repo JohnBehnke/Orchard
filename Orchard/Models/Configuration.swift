@@ -8,6 +8,8 @@
 import Foundation
 
 struct Product: Codable {
+  // Removes "Immutable property will not be decoded because it is declared with an initial value which cannot be overwritten" warning
+  private enum CodingKeys: String, CodingKey { case name, type, options}
   let id = UUID()
   let name: String
   let type: String

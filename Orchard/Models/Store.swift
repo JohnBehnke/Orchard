@@ -21,7 +21,6 @@ struct Store: Encodable {
     self.schedule = schedule
   }
 
-  let id: UUID = UUID()
   var information: Information
   var address: Address
   var productAvailability: [String: ProductAvailability]
@@ -102,11 +101,11 @@ struct Day: Encodable {
 
 extension Store: Hashable {
   func hash(into hasher: inout Hasher) {
-    hasher.combine(self.id)
+    hasher.combine(self.information.number)
   }
 
   static func == (lhs: Store, rhs: Store) -> Bool {
-    lhs.id == rhs.id
+    lhs.information.number == rhs.information.number
   }
 }
 

@@ -38,15 +38,15 @@ struct DebugPreferencesView: View {
         Text("Load Sample Data")
       })
 
-      Button(action: {
-        Task {
-          for product in self.userDataStore.userData.trackedProducts {
-            await self.storeAPI.performSearch(for: product.identifier, near: "06877")
-          }
-        }
-      }, label: {
-        Text("Force Store Check")
-      })
+//      Button(action: {
+//        Task {
+//          for product in self.userDataStore.userData.trackedProducts {
+//            await self.storeAPI.performSearch(for: product.identifier, near: "06877")
+//          }
+//        }
+//      }, label: {
+//        Text("Force Store Check")
+//      })
 
       Button(action: {
 
