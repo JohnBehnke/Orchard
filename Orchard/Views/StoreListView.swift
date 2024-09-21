@@ -16,7 +16,6 @@ struct StoreListView: View {
 
   var product: TrackedProduct
   init(product: TrackedProduct) {
-    print("inti")
     self.product = product
   }
   var body: some View {

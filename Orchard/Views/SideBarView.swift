@@ -67,7 +67,6 @@ struct SideBarView: View {
     }
     .onReceive(timer) { _ in
       Task {
-        print("Searching!")
         storeAPI.isSearching = true
         await storeAPI.performSearch(for: userDataStore.userData.trackedProducts.map { $0.identifier }, near: "06877")
       }
@@ -77,7 +76,6 @@ struct SideBarView: View {
         productSelection: productStore.findOptionFor(trackedProduct: selectedProduct!).0,
         optionSelection: productStore.findOptionFor(trackedProduct: selectedProduct!).1
       )
-//      EditProductView(product: $selectedProduct.toNonOptional()).environmentObject(trackedProductStore)
     }
     .contextMenu(ContextMenu(menuItems: {
       Button(action: {
@@ -87,7 +85,6 @@ struct SideBarView: View {
       })
       Divider()
       Button(action: {
-        print("Pressed delete in context menu")
         if let productToDelete = selectedProduct {
           userDataStore.deleteProduct(product: productToDelete)
         }
@@ -112,7 +109,6 @@ struct SideBarView: View {
         }
       }).buttonStyle(.borderless).padding([.bottom, .leading], 7.5)
         .sheet(isPresented: self.$shouldShowAddProductView) {
-//          AddProductView().environmentObject(products)
           ProductConfiguratorView()
 
         }

@@ -9,21 +9,7 @@ import Foundation
 @MainActor
 class ProductStore: ObservableObject {
   @Published var products: [Product] = []
-  //  func updateProduct(product: TrackedProduct) {
-  //    if let row =  products.firstIndex(where: {$0.id == product.id}) {
-  //      products[row] = product
-  //    }
-  //  }
-  //
-  //  func addProduct(product: TrackedProduct) {
-  //    products.append(product)
-  //    TrackedProductStore.save(products: products) { result in
-  //      if case .failure(let error) = result {
-  //        fatalError(error.localizedDescription)
-  //      }
-  //    }
-  //  }
-  //
+
   func getProductDetails(_ trackedProduct: TrackedProduct) -> Product? {
 
     for product in products {

@@ -97,9 +97,7 @@ struct GeneralPreferencesView: View {
         Button("Request Permission") {
           UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             if success {
-              print("All set!")
             } else if let error = error {
-              print(error.localizedDescription)
             }
           }
         }
@@ -146,21 +144,3 @@ class AppSettings: ObservableObject {
 
   @AppStorage("selectedAppearence") var currentTheme: Int = 0
 }
-
-//
-// enum Theme: Int {
-//    case light
-//    case dark
-//    case auto
-//
-//    var colorScheme: ColorScheme {
-//        switch self {
-//        case .light:
-//            return .light
-//        case .dark:
-//            return .dark
-//        case .auto:
-//          return .nil
-//        }
-//    }
-// }

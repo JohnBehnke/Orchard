@@ -15,7 +15,6 @@
 		5267A4BC27E6435C0020E8A3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267A4BB27E6435C0020E8A3 /* Store.swift */; };
 		526D082F281030D000A0F489 /* ProductStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D082E281030D000A0F489 /* ProductStore.swift */; };
 		526D08322810DED800A0F489 /* Products.json in Resources */ = {isa = PBXBuildFile; fileRef = 526D08312810DED800A0F489 /* Products.json */; };
-		5298691627DB09EE00C83613 /* EditProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298691527DB09EE00C83613 /* EditProductView.swift */; };
 		529869A727DC43D100C83613 /* TrackedProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869A627DC43D100C83613 /* TrackedProduct.swift */; };
 		529869A927DC445B00C83613 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869A827DC445B00C83613 /* SideBarView.swift */; };
 		529869AB27DC44A400C83613 /* StoreDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869AA27DC44A400C83613 /* StoreDetailView.swift */; };
@@ -33,7 +32,6 @@
 		52F325FD273C8F7A00AD07D1 /* OrchardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F325E9273C8F7900AD07D1 /* OrchardApp.swift */; };
 		52F325FF273C8F7A00AD07D1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F325EA273C8F7900AD07D1 /* MainView.swift */; };
 		52F32603273C8F7A00AD07D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F325EC273C8F7A00AD07D1 /* Assets.xcassets */; };
-		52F3260F273CA56500AD07D1 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F3260D273CA56500AD07D1 /* AddProductView.swift */; };
 		52F32612273CC19C00AD07D1 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F32610273CC19C00AD07D1 /* PreferencesView.swift */; };
 		52F32615273CC50F00AD07D1 /* TwilioPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F32613273CC50F00AD07D1 /* TwilioPreferencesView.swift */; };
 /* End PBXBuildFile section */
@@ -47,7 +45,6 @@
 		5267A4BB27E6435C0020E8A3 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		526D082E281030D000A0F489 /* ProductStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStore.swift; sourceTree = "<group>"; };
 		526D08312810DED800A0F489 /* Products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Products.json; sourceTree = "<group>"; };
-		5298691527DB09EE00C83613 /* EditProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductView.swift; sourceTree = "<group>"; };
 		529869A627DC43D100C83613 /* TrackedProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedProduct.swift; sourceTree = "<group>"; };
 		529869A827DC445B00C83613 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
 		529869AA27DC44A400C83613 /* StoreDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailView.swift; sourceTree = "<group>"; };
@@ -67,7 +64,6 @@
 		52F325EA273C8F7900AD07D1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		52F325EC273C8F7A00AD07D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52F325F7273C8F7A00AD07D1 /* Orchard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orchard.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		52F3260D273CA56500AD07D1 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		52F32610273CC19C00AD07D1 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		52F32613273CC50F00AD07D1 /* TwilioPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioPreferencesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,9 +156,7 @@
 			children = (
 				52F802B427E6A1520085B0A7 /* Preferences */,
 				52F325EA273C8F7900AD07D1 /* MainView.swift */,
-				52F3260D273CA56500AD07D1 /* AddProductView.swift */,
 				520504072809D8B800E10DB6 /* ProductConfiguratorView.swift */,
-				5298691527DB09EE00C83613 /* EditProductView.swift */,
 				529869A827DC445B00C83613 /* SideBarView.swift */,
 				529869AA27DC44A400C83613 /* StoreDetailView.swift */,
 				529869AC27DC450300C83613 /* StoreListView.swift */,
@@ -295,7 +289,6 @@
 			files = (
 				52334B4028EE79EB00C3CE5E /* UserData.swift in Sources */,
 				529869B127DC466B00C83613 /* StoreAPI.swift in Sources */,
-				5298691627DB09EE00C83613 /* EditProductView.swift in Sources */,
 				52F325FD273C8F7A00AD07D1 /* OrchardApp.swift in Sources */,
 				52F32612273CC19C00AD07D1 /* PreferencesView.swift in Sources */,
 				52DE2ABF27DED49600747B14 /* DebugPreferencesView.swift in Sources */,
@@ -309,7 +302,6 @@
 				52EA3D83280CD103007C2241 /* View+Selectable.swift in Sources */,
 				52DE2AC327DED93700747B14 /* UpdatesPreferencesView.swift in Sources */,
 				52F325FF273C8F7A00AD07D1 /* MainView.swift in Sources */,
-				52F3260F273CA56500AD07D1 /* AddProductView.swift in Sources */,
 				52DE2AC127DED4D600747B14 /* GeneralPreferencesView.swift in Sources */,
 				520504082809D8B800E10DB6 /* ProductConfiguratorView.swift in Sources */,
 				5267A4BC27E6435C0020E8A3 /* Store.swift in Sources */,
@@ -391,7 +383,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "Orchard/Preview\\ Content";
-				DEVELOPMENT_TEAM = J2HUV3NVUY;
+				DEVELOPMENT_TEAM = 4HKGH5JXWX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -537,7 +529,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "Orchard/Preview\\ Content";
-				DEVELOPMENT_TEAM = J2HUV3NVUY;
+				DEVELOPMENT_TEAM = 4HKGH5JXWX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -570,7 +562,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "Orchard/Preview\\ Content";
-				DEVELOPMENT_TEAM = J2HUV3NVUY;
+				DEVELOPMENT_TEAM = 4HKGH5JXWX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

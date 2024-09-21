@@ -36,8 +36,6 @@ class StoreAPI: ObservableObject {
       return result.body.content.pickupMessage.stores
     } catch {
       self.isSearching = false
-      print(url)
-      print("Request failed with error: \(error)")
       return []
     }
   }
@@ -51,7 +49,6 @@ class StoreAPI: ObservableObject {
       let (data, _) = try await URLSession.shared.data(from: url)
       return try JSONDecoder().decode(StoreDetailAPIResponse.self, from: data)
     } catch {
-      print("Request failed with error: \(error)")
       return nil
     }
   }
@@ -77,7 +74,6 @@ class StoreAPI: ObservableObject {
       )
       if newStores.count == productAvailabilityResponse.count {
         if !self.stores.elementsEqual(newStores) {
-          print("reload")
           self.stores = newStores
         }
         self.isSearching = false

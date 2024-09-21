@@ -38,16 +38,6 @@ struct DebugPreferencesView: View {
         Text("Load Sample Data")
       })
 
-//      Button(action: {
-//        Task {
-//          for product in self.userDataStore.userData.trackedProducts {
-//            await self.storeAPI.performSearch(for: product.identifier, near: "06877")
-//          }
-//        }
-//      }, label: {
-//        Text("Force Store Check")
-//      })
-
       Button(action: {
 
         do {
@@ -70,7 +60,6 @@ struct DebugPreferencesView: View {
           //
 
           let savePanel = NSSavePanel()
-          //              savePanel.allowedFileTypes = ["vcf"]
           savePanel.allowedContentTypes = [.vCard]
           savePanel.canCreateDirectories = true
           savePanel.isExtensionHidden = false
@@ -82,11 +71,7 @@ struct DebugPreferencesView: View {
 
           try data.write(to: savePanel.url!, options: [.atomicWrite])
         } catch {
-          print(error)
         }
-
-        // Saving the newly created contact
-
       }, label: {
         Text("Create Contact vCard")
       })
