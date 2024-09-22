@@ -7,37 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52F325FA273C8F7A00AD07D1 /* Orchard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52F325E7273C8F7900AD07D1 /* Orchard.xcdatamodeld */; };
-		52F325FB273C8F7A00AD07D1 /* Orchard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52F325E7273C8F7900AD07D1 /* Orchard.xcdatamodeld */; };
-		52F325FC273C8F7A00AD07D1 /* OrchardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F325E9273C8F7900AD07D1 /* OrchardApp.swift */; };
+		5203927627E3F8780070D245 /* StoreDetailAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5203927527E3F8780070D245 /* StoreDetailAPIResponse.swift */; };
+		520504082809D8B800E10DB6 /* ProductConfiguratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520504072809D8B800E10DB6 /* ProductConfiguratorView.swift */; };
+		52334B4028EE79EB00C3CE5E /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52334B3F28EE79EB00C3CE5E /* UserData.swift */; };
+		5236446227D98FF100707FD3 /* FulfillmentMessagesAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5236446027D98FF100707FD3 /* FulfillmentMessagesAPIResponse.swift */; };
+		524F73A627DAD4C00091BFF4 /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = 524F73A527DAD4C00091BFF4 /* Preview Content */; };
+		5267A4BC27E6435C0020E8A3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267A4BB27E6435C0020E8A3 /* Store.swift */; };
+		526D082F281030D000A0F489 /* ProductStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D082E281030D000A0F489 /* ProductStore.swift */; };
+		526D08322810DED800A0F489 /* Products.json in Resources */ = {isa = PBXBuildFile; fileRef = 526D08312810DED800A0F489 /* Products.json */; };
+		529869A727DC43D100C83613 /* TrackedProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869A627DC43D100C83613 /* TrackedProduct.swift */; };
+		529869A927DC445B00C83613 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869A827DC445B00C83613 /* SideBarView.swift */; };
+		529869AB27DC44A400C83613 /* StoreDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869AA27DC44A400C83613 /* StoreDetailView.swift */; };
+		529869AD27DC450300C83613 /* StoreListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869AC27DC450300C83613 /* StoreListView.swift */; };
+		529869AF27DC45D900C83613 /* UserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869AE27DC45D900C83613 /* UserDataStore.swift */; };
+		529869B127DC466B00C83613 /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529869B027DC466B00C83613 /* StoreAPI.swift */; };
+		52DE2ABF27DED49600747B14 /* DebugPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE2ABE27DED49600747B14 /* DebugPreferencesView.swift */; };
+		52DE2AC127DED4D600747B14 /* GeneralPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE2AC027DED4D600747B14 /* GeneralPreferencesView.swift */; };
+		52DE2AC327DED93700747B14 /* UpdatesPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE2AC227DED93700747B14 /* UpdatesPreferencesView.swift */; };
+		52EA3D7F280CD083007C2241 /* Color+ProductColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA3D7E280CD083007C2241 /* Color+ProductColors.swift */; };
+		52EA3D81280CD0E0007C2241 /* Shape+DualToneFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA3D80280CD0E0007C2241 /* Shape+DualToneFill.swift */; };
+		52EA3D83280CD103007C2241 /* View+Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA3D82280CD103007C2241 /* View+Selectable.swift */; };
+		52EA3D85280CD2A3007C2241 /* AnyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA3D84280CD2A3007C2241 /* AnyShape.swift */; };
+		52EA3D87280CE44E007C2241 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA3D86280CE44E007C2241 /* Configuration.swift */; };
 		52F325FD273C8F7A00AD07D1 /* OrchardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F325E9273C8F7900AD07D1 /* OrchardApp.swift */; };
-		52F325FE273C8F7A00AD07D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F325EA273C8F7900AD07D1 /* ContentView.swift */; };
-		52F325FF273C8F7A00AD07D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F325EA273C8F7900AD07D1 /* ContentView.swift */; };
-		52F32600273C8F7A00AD07D1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F325EB273C8F7900AD07D1 /* Persistence.swift */; };
-		52F32601273C8F7A00AD07D1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F325EB273C8F7900AD07D1 /* Persistence.swift */; };
-		52F32602273C8F7A00AD07D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F325EC273C8F7A00AD07D1 /* Assets.xcassets */; };
+		52F325FF273C8F7A00AD07D1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F325EA273C8F7900AD07D1 /* MainView.swift */; };
 		52F32603273C8F7A00AD07D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F325EC273C8F7A00AD07D1 /* Assets.xcassets */; };
+		52F32612273CC19C00AD07D1 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F32610273CC19C00AD07D1 /* PreferencesView.swift */; };
+		52F32615273CC50F00AD07D1 /* TwilioPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F32613273CC50F00AD07D1 /* TwilioPreferencesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		52F325E8273C8F7900AD07D1 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
+		5203927527E3F8780070D245 /* StoreDetailAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailAPIResponse.swift; sourceTree = "<group>"; };
+		520504072809D8B800E10DB6 /* ProductConfiguratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductConfiguratorView.swift; sourceTree = "<group>"; };
+		52334B3F28EE79EB00C3CE5E /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		5236446027D98FF100707FD3 /* FulfillmentMessagesAPIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FulfillmentMessagesAPIResponse.swift; sourceTree = "<group>"; };
+		524F73A527DAD4C00091BFF4 /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preview Content"; sourceTree = "<group>"; };
+		5267A4BB27E6435C0020E8A3 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		526D082E281030D000A0F489 /* ProductStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStore.swift; sourceTree = "<group>"; };
+		526D08312810DED800A0F489 /* Products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Products.json; sourceTree = "<group>"; };
+		529869A627DC43D100C83613 /* TrackedProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedProduct.swift; sourceTree = "<group>"; };
+		529869A827DC445B00C83613 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
+		529869AA27DC44A400C83613 /* StoreDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailView.swift; sourceTree = "<group>"; };
+		529869AC27DC450300C83613 /* StoreListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreListView.swift; sourceTree = "<group>"; };
+		529869AE27DC45D900C83613 /* UserDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStore.swift; sourceTree = "<group>"; };
+		529869B027DC466B00C83613 /* StoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAPI.swift; sourceTree = "<group>"; };
+		52C9C8B427E7C9A600EDA0EB /* Orchard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Orchard.entitlements; sourceTree = "<group>"; };
+		52DE2ABE27DED49600747B14 /* DebugPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugPreferencesView.swift; sourceTree = "<group>"; };
+		52DE2AC027DED4D600747B14 /* GeneralPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesView.swift; sourceTree = "<group>"; };
+		52DE2AC227DED93700747B14 /* UpdatesPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesPreferencesView.swift; sourceTree = "<group>"; };
+		52EA3D7E280CD083007C2241 /* Color+ProductColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+ProductColors.swift"; sourceTree = "<group>"; };
+		52EA3D80280CD0E0007C2241 /* Shape+DualToneFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shape+DualToneFill.swift"; sourceTree = "<group>"; };
+		52EA3D82280CD103007C2241 /* View+Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Selectable.swift"; sourceTree = "<group>"; };
+		52EA3D84280CD2A3007C2241 /* AnyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyShape.swift; sourceTree = "<group>"; };
+		52EA3D86280CE44E007C2241 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		52F325E9273C8F7900AD07D1 /* OrchardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchardApp.swift; sourceTree = "<group>"; };
-		52F325EA273C8F7900AD07D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		52F325EB273C8F7900AD07D1 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		52F325EA273C8F7900AD07D1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		52F325EC273C8F7A00AD07D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		52F325F1273C8F7A00AD07D1 /* Orchard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orchard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F325F7273C8F7A00AD07D1 /* Orchard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orchard.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		52F325F9273C8F7A00AD07D1 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		52F32610273CC19C00AD07D1 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		52F32613273CC50F00AD07D1 /* TwilioPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioPreferencesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		52F325EE273C8F7A00AD07D1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		52F325F4273C8F7A00AD07D1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -48,77 +79,138 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5236446327D990A200707FD3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				52F802B227E6A0A40085B0A7 /* API Response */,
+				529869A627DC43D100C83613 /* TrackedProduct.swift */,
+				5267A4BB27E6435C0020E8A3 /* Store.swift */,
+				52EA3D84280CD2A3007C2241 /* AnyShape.swift */,
+				52EA3D86280CE44E007C2241 /* Configuration.swift */,
+				52334B3F28EE79EB00C3CE5E /* UserData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5236446427D990AB00707FD3 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				529869B027DC466B00C83613 /* StoreAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		526D08302810DEC200A0F489 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				526D08312810DED800A0F489 /* Products.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		52EA3D7D280CD05F007C2241 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				52EA3D7E280CD083007C2241 /* Color+ProductColors.swift */,
+				52EA3D80280CD0E0007C2241 /* Shape+DualToneFill.swift */,
+				52EA3D82280CD103007C2241 /* View+Selectable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		52F325E1273C8F7900AD07D1 = {
 			isa = PBXGroup;
 			children = (
-				52F325E6273C8F7900AD07D1 /* Shared */,
-				52F325F8273C8F7A00AD07D1 /* macOS */,
+				52F325E6273C8F7900AD07D1 /* Orchard */,
 				52F325F2273C8F7A00AD07D1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		52F325E6273C8F7900AD07D1 /* Shared */ = {
+		52F325E6273C8F7900AD07D1 /* Orchard */ = {
 			isa = PBXGroup;
 			children = (
+				526D08302810DEC200A0F489 /* Resources */,
+				52EA3D7D280CD05F007C2241 /* Extensions */,
+				52C9C8B427E7C9A600EDA0EB /* Orchard.entitlements */,
+				52F802B327E6A0C30085B0A7 /* Persistence */,
+				5236446427D990AB00707FD3 /* API */,
+				5236446327D990A200707FD3 /* Models */,
+				52F3260C273CA55200AD07D1 /* Views */,
 				52F325E9273C8F7900AD07D1 /* OrchardApp.swift */,
-				52F325EA273C8F7900AD07D1 /* ContentView.swift */,
-				52F325EB273C8F7900AD07D1 /* Persistence.swift */,
 				52F325EC273C8F7A00AD07D1 /* Assets.xcassets */,
-				52F325E7273C8F7900AD07D1 /* Orchard.xcdatamodeld */,
+				524F73A527DAD4C00091BFF4 /* Preview Content */,
 			);
-			path = Shared;
+			path = Orchard;
 			sourceTree = "<group>";
 		};
 		52F325F2273C8F7A00AD07D1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				52F325F1273C8F7A00AD07D1 /* Orchard.app */,
 				52F325F7273C8F7A00AD07D1 /* Orchard.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		52F325F8273C8F7A00AD07D1 /* macOS */ = {
+		52F3260C273CA55200AD07D1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				52F325F9273C8F7A00AD07D1 /* macOS.entitlements */,
+				52F802B427E6A1520085B0A7 /* Preferences */,
+				52F325EA273C8F7900AD07D1 /* MainView.swift */,
+				520504072809D8B800E10DB6 /* ProductConfiguratorView.swift */,
+				529869A827DC445B00C83613 /* SideBarView.swift */,
+				529869AA27DC44A400C83613 /* StoreDetailView.swift */,
+				529869AC27DC450300C83613 /* StoreListView.swift */,
 			);
-			path = macOS;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		52F802B227E6A0A40085B0A7 /* API Response */ = {
+			isa = PBXGroup;
+			children = (
+				5236446027D98FF100707FD3 /* FulfillmentMessagesAPIResponse.swift */,
+				5203927527E3F8780070D245 /* StoreDetailAPIResponse.swift */,
+			);
+			path = "API Response";
+			sourceTree = "<group>";
+		};
+		52F802B327E6A0C30085B0A7 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				529869AE27DC45D900C83613 /* UserDataStore.swift */,
+				526D082E281030D000A0F489 /* ProductStore.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		52F802B427E6A1520085B0A7 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				52F32610273CC19C00AD07D1 /* PreferencesView.swift */,
+				52F32613273CC50F00AD07D1 /* TwilioPreferencesView.swift */,
+				52DE2ABE27DED49600747B14 /* DebugPreferencesView.swift */,
+				52DE2AC027DED4D600747B14 /* GeneralPreferencesView.swift */,
+				52DE2AC227DED93700747B14 /* UpdatesPreferencesView.swift */,
+			);
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		52F325F0273C8F7A00AD07D1 /* Orchard (iOS) */ = {
+		52F325F6273C8F7A00AD07D1 /* Orchard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52F32606273C8F7A00AD07D1 /* Build configuration list for PBXNativeTarget "Orchard (iOS)" */;
-			buildPhases = (
-				52F325ED273C8F7A00AD07D1 /* Sources */,
-				52F325EE273C8F7A00AD07D1 /* Frameworks */,
-				52F325EF273C8F7A00AD07D1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Orchard (iOS)";
-			productName = "Orchard (iOS)";
-			productReference = 52F325F1273C8F7A00AD07D1 /* Orchard.app */;
-			productType = "com.apple.product-type.application";
-		};
-		52F325F6273C8F7A00AD07D1 /* Orchard (macOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 52F32609273C8F7A00AD07D1 /* Build configuration list for PBXNativeTarget "Orchard (macOS)" */;
+			buildConfigurationList = 52F32609273C8F7A00AD07D1 /* Build configuration list for PBXNativeTarget "Orchard" */;
 			buildPhases = (
 				52F325F3273C8F7A00AD07D1 /* Sources */,
 				52F325F4273C8F7A00AD07D1 /* Frameworks */,
 				52F325F5273C8F7A00AD07D1 /* Resources */,
+				52881E3927E943F700404A5D /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Orchard (macOS)";
+			name = Orchard;
 			productName = "Orchard (macOS)";
 			productReference = 52F325F7273C8F7A00AD07D1 /* Orchard.app */;
 			productType = "com.apple.product-type.application";
@@ -131,11 +223,8 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1310;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					52F325F0273C8F7A00AD07D1 = {
-						CreatedOnToolsVersion = 13.1;
-					};
 					52F325F6273C8F7A00AD07D1 = {
 						CreatedOnToolsVersion = 13.1;
 					};
@@ -154,57 +243,166 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				52F325F0273C8F7A00AD07D1 /* Orchard (iOS) */,
-				52F325F6273C8F7A00AD07D1 /* Orchard (macOS) */,
+				52F325F6273C8F7A00AD07D1 /* Orchard */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		52F325EF273C8F7A00AD07D1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				52F32602273C8F7A00AD07D1 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		52F325F5273C8F7A00AD07D1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				524F73A627DAD4C00091BFF4 /* Preview Content in Resources */,
 				52F32603273C8F7A00AD07D1 /* Assets.xcassets in Resources */,
+				526D08322810DED800A0F489 /* Products.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXSourcesBuildPhase section */
-		52F325ED273C8F7A00AD07D1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+/* Begin PBXShellScriptBuildPhase section */
+		52881E3927E943F700404A5D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
-				52F325FA273C8F7A00AD07D1 /* Orchard.xcdatamodeld in Sources */,
-				52F32600273C8F7A00AD07D1 /* Persistence.swift in Sources */,
-				52F325FC273C8F7A00AD07D1 /* OrchardApp.swift in Sources */,
-				52F325FE273C8F7A00AD07D1 /* ContentView.swift in Sources */,
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		52F325F3273C8F7A00AD07D1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52F325FB273C8F7A00AD07D1 /* Orchard.xcdatamodeld in Sources */,
-				52F32601273C8F7A00AD07D1 /* Persistence.swift in Sources */,
+				52334B4028EE79EB00C3CE5E /* UserData.swift in Sources */,
+				529869B127DC466B00C83613 /* StoreAPI.swift in Sources */,
 				52F325FD273C8F7A00AD07D1 /* OrchardApp.swift in Sources */,
-				52F325FF273C8F7A00AD07D1 /* ContentView.swift in Sources */,
+				52F32612273CC19C00AD07D1 /* PreferencesView.swift in Sources */,
+				52DE2ABF27DED49600747B14 /* DebugPreferencesView.swift in Sources */,
+				52EA3D81280CD0E0007C2241 /* Shape+DualToneFill.swift in Sources */,
+				52EA3D87280CE44E007C2241 /* Configuration.swift in Sources */,
+				529869A927DC445B00C83613 /* SideBarView.swift in Sources */,
+				529869AB27DC44A400C83613 /* StoreDetailView.swift in Sources */,
+				52EA3D85280CD2A3007C2241 /* AnyShape.swift in Sources */,
+				529869AD27DC450300C83613 /* StoreListView.swift in Sources */,
+				52F32615273CC50F00AD07D1 /* TwilioPreferencesView.swift in Sources */,
+				52EA3D83280CD103007C2241 /* View+Selectable.swift in Sources */,
+				52DE2AC327DED93700747B14 /* UpdatesPreferencesView.swift in Sources */,
+				52F325FF273C8F7A00AD07D1 /* MainView.swift in Sources */,
+				52DE2AC127DED4D600747B14 /* GeneralPreferencesView.swift in Sources */,
+				520504082809D8B800E10DB6 /* ProductConfiguratorView.swift in Sources */,
+				5267A4BC27E6435C0020E8A3 /* Store.swift in Sources */,
+				5236446227D98FF100707FD3 /* FulfillmentMessagesAPIResponse.swift in Sources */,
+				526D082F281030D000A0F489 /* ProductStore.swift in Sources */,
+				529869A727DC43D100C83613 /* TrackedProduct.swift in Sources */,
+				52EA3D7F280CD083007C2241 /* Color+ProductColors.swift in Sources */,
+				529869AF27DC45D900C83613 /* UserDataStore.swift in Sources */,
+				5203927627E3F8780070D245 /* StoreDetailAPIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		5265329327E140980085DA86 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Beta;
+		};
+		5265329427E140980085DA86 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon$(BUNDLE_ID_SUFFIX)";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUNDLE_ID_SUFFIX = .beta;
+				CODE_SIGN_ENTITLEMENTS = Orchard/Orchard.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "Orchard/Preview\\ Content";
+				DEVELOPMENT_TEAM = 4HKGH5JXWX;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.behnke.Orchard;
+				PRODUCT_NAME = Orchard.beta;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Beta;
+		};
 		52F32604273C8F7A00AD07D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -239,6 +437,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -298,6 +497,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -316,88 +516,32 @@
 			};
 			name = Release;
 		};
-		52F32607273C8F7A00AD07D1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J2HUV3NVUY;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.behnke.Orchard.Orchard;
-				PRODUCT_NAME = Orchard;
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		52F32608273C8F7A00AD07D1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J2HUV3NVUY;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.behnke.Orchard.Orchard;
-				PRODUCT_NAME = Orchard;
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		52F3260A273C8F7A00AD07D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon$(BUNDLE_ID_SUFFIX)";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				BUNDLE_ID_SUFFIX = .debug;
+				CODE_SIGN_ENTITLEMENTS = Orchard/Orchard.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J2HUV3NVUY;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "Orchard/Preview\\ Content";
+				DEVELOPMENT_TEAM = 4HKGH5JXWX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.behnke.Orchard.Orchard;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.behnke.Orchard;
 				PRODUCT_NAME = Orchard;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -408,25 +552,31 @@
 		52F3260B273C8F7A00AD07D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon$(BUNDLE_ID_SUFFIX)";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				BUNDLE_ID_SUFFIX = "";
+				CODE_SIGN_ENTITLEMENTS = Orchard/OrchardRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J2HUV3NVUY;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "Orchard/Preview\\ Content";
+				DEVELOPMENT_TEAM = 4HKGH5JXWX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.behnke.Orchard.Orchard;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.behnke.Orchard;
 				PRODUCT_NAME = Orchard;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -441,42 +591,22 @@
 			buildConfigurations = (
 				52F32604273C8F7A00AD07D1 /* Debug */,
 				52F32605273C8F7A00AD07D1 /* Release */,
+				5265329327E140980085DA86 /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52F32606273C8F7A00AD07D1 /* Build configuration list for PBXNativeTarget "Orchard (iOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				52F32607273C8F7A00AD07D1 /* Debug */,
-				52F32608273C8F7A00AD07D1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		52F32609273C8F7A00AD07D1 /* Build configuration list for PBXNativeTarget "Orchard (macOS)" */ = {
+		52F32609273C8F7A00AD07D1 /* Build configuration list for PBXNativeTarget "Orchard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52F3260A273C8F7A00AD07D1 /* Debug */,
 				52F3260B273C8F7A00AD07D1 /* Release */,
+				5265329427E140980085DA86 /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		52F325E7273C8F7900AD07D1 /* Orchard.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				52F325E8273C8F7900AD07D1 /* Shared.xcdatamodel */,
-			);
-			currentVersion = 52F325E8273C8F7900AD07D1 /* Shared.xcdatamodel */;
-			path = Orchard.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 52F325E2273C8F7900AD07D1 /* Project object */;
 }
